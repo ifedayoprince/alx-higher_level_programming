@@ -1,3 +1,2 @@
 #!/bin/bash
-result = "'$PYCODE'"
-python3 -c $result
+python3 -c $PYCODE
