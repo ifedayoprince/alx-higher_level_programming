@@ -4,4 +4,4 @@ filename=$(basename $PYFILE .py)
 echo "Compiling $PYFILE ..."
 python3 -m py_compile $PYFILE
 
-mv __pycache__/$filename*.pyc $filename".pyc"
+mv __pycache__/$filename*.pyc $filename.pyc
