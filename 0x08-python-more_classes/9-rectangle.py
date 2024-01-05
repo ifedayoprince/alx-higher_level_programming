@@ -8,7 +8,7 @@
 """
 
 
-class Rectange:
+class Rectangle:
     """the rectange class with methods used:
         - Creating a rectangle
         - Setting its size
