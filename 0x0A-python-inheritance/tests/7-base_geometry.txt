@@ -35,3 +35,44 @@ With a float:
     ...
     TypeError: test must be an integer
 
+With dictionary:
+
+    >>> bg.integer_validator("test", {4})
+    Traceback (most recent call last):
+    ...
+    TypeError: test must be an integer
+
+With None value:
+
+    >>> bg.integer_validator("test", None)
+    Traceback (most recent call last):
+    ...
+    TypeError: test must be an integer
+
+With tuple:
+
+    >>> bg.integer_validator("test", (4,))
+    Traceback (most recent call last):
+    ...
+    TypeError: test must be an integer
+
+With boolean:
+
+    >>> bg.integer_validator("test", True)
+    Traceback (most recent call last):
+    ...
+    TypeError: test must be an integer
+
+With string:
+
+    >>> bg.integer_validator("test", "2")
+    Traceback (most recent call last):
+    ...
+    TypeError: test must be an integer
+
+With list:
+
+    >>> bg.integer_validator("test", [7])
+    Traceback (most recent call last):
+    ...
+    TypeError: test must be an integer
