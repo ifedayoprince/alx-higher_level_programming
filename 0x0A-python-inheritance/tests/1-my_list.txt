@@ -1,0 +1,11 @@
+The '1-my_list' test module
+==============================
+
+Using ''print_sorted''
+---------------------
+
+This file is in restructured text format.
+First import ''print_sorted'' from the ''1-my_list'' module:
+
+    >>> print_sorted = __import__('1-my_list').print_sorted
+

@@ -1,0 +1,37 @@
+The '7-base_geometry' test module
+==============================
+
+Using ''BaseGeometry''
+---------------------
+
+This file is in restructured text format.
+First import ''BaseGeometry'' from the ''7-base_geometry'' module:
+
+    >>> BaseGeometry = __import__('7-base_geometry').BaseGeometry
+    >>> bg = BaseGeometry()
+
+With positive integer:
+
+    >>> bg.integer_validator("test", 3)
+
+With negative integer:
+
+    >>> bg.integer_validator("test", -6)
+    Traceback (most recent call last):
+    ...
+    ValueError: test must be greater than 0
+
+With a 0 value:
+
+    >>> bg.integer_validator("test", 0)
+    Traceback (most recent call last):
+    ...
+    ValueError: test must be greater than 0
+
+With a float:
+
+    >>> bg.integer_validator("test", 4.9)
+    Traceback (most recent call last):
+    ...
+    TypeError: test must be an integer
+
