@@ -23,3 +23,5 @@ class MyList(list):
         sorted_list = self.copy()
         sorted_list.sort()
         print("{}".format(sorted_list))
+
+        return sorted_list

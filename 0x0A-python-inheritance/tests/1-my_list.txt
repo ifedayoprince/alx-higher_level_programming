@@ -11,6 +11,7 @@ First import ''MyList'' from the ''1-my_list'' module:
     >>> ls = MyList()
 
 String in list:
+
     >>> ls.clear()
     >>> ls.append(3)
     >>> ls.append("45")
@@ -21,9 +22,25 @@ String in list:
     TypeError: '<' not supported between instances of 'str' and 'int'
 
 With proper list:
+
     >>> ls.clear()
     >>> ls.append(9)
     >>> ls.append(2)
     >>> ls.append(30)
     >>> ls.print_sorted()
     [2, 9, 30]
+
+Empty list:
+
+    >>> ls.clear()
+    >>> ls.print_sorted()
+    []
+
+Returns new list:
+
+    >>> ls.clear()
+    >>> ls.append(3)
+    >>> ls.append(20)
+    >>> type(ls.print_sorted()) is list
+    [3, 20]
+    True
