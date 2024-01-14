@@ -76,3 +76,24 @@ With list:
     Traceback (most recent call last):
     ...
     TypeError: test must be an integer
+
+With no parameter value:
+
+    >>> bg.integer_validator("test")
+    Traceback (most recent call last):
+    ...
+    TypeError: integer_validator() missing 1 required positional argument: 'value'
+
+With no parameter at all:
+
+    >>> bg.integer_validator()
+    Traceback (most recent call last):
+    ...
+    TypeError: integer_validator() missing 2 required positional arguments: 'name' and 'value'
+
+area() test:
+
+    >>> bg.area()
+    Traceback (most recent call last):
+    ...
+    Exception: area() is not implemented
