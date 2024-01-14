@@ -1,11 +1,29 @@
 The '1-my_list' test module
 ==============================
 
-Using ''print_sorted''
+Using ''MyList''
 ---------------------
 
 This file is in restructured text format.
-First import ''print_sorted'' from the ''1-my_list'' module:
+First import ''MyList'' from the ''1-my_list'' module:
 
-    >>> print_sorted = __import__('1-my_list').print_sorted
+    >>> MyList = __import__('1-my_list').MyList
+    >>> ls = MyList()
 
+String in list:
+    >>> ls.clear()
+    >>> ls.append(3)
+    >>> ls.append("45")
+    >>> ls.append(9)
+    >>> ls.print_sorted()
+    Traceback (most recent call last):
+    ...
+    TypeError: '<' not supported between instances of 'str' and 'int'
+
+With proper list:
+    >>> ls.clear()
+    >>> ls.append(9)
+    >>> ls.append(2)
+    >>> ls.append(30)
+    >>> ls.print_sorted()
+    [2, 9, 30]
