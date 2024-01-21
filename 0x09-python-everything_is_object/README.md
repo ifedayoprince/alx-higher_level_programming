@@ -1,8 +1,6 @@
 # 0x09. Python - Everything is object
 ==============================
-I learnt:
-- Something
-- Something
+I learnt how python memory addressing for objects work.
 
 
 ## Tasks: 
