@@ -1,0 +1,53 @@
+The ``2-matrix_divide test`` module
+=================================
+
+Using ``matrix_divided``
+------------------------
+
+Import ``matrix_divided`` from ``2-matrix_divided.py``
+
+    >>> matrix_divided = __import__('2-matrix_divided').matrix_divided
+
+1d empty matrix:
+
+    >>> matrix_divided([], 2)
+    []
+
+Division by 0:
+
+    >>> matrix_divided([], 0)
+    Traceback (most recent call last):
+    ...
+    ZeroDivisionError: division by zero
+
+Varied length of 2d list:
+
+    >>> matrix_divided(
+    ... [
+    ...     [3, 5, 6],
+    ...     [5, 2]
+    ... ], 4)
+    Traceback (most recent call last):
+    ...
+    TypeError: Each row of the matrix must have the same size
+
+1d matrix with numbers:
+
+    >>> matrix_divided([3, 5, 6], 2)
+    Traceback (most recent call last):
+    ...
+    TypeError: matrix must be a matrix (list of lists) of integers/floats
+
+matrix with string:
+
+    >>> matrix_divided([[3,4], [1,"hello"]], 2)
+    Traceback (most recent call last):
+    ...
+    TypeError: matrix must be a matrix (list of lists) of integers/floats
+
+using a string as a divisor:
+
+    >>> matrix_divided([3, 5, 6], "div")
+    Traceback (most recent call last):
+    ...
+    TypeError: div must be a number

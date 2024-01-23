@@ -1,0 +1,58 @@
+The ``0-add_integer test`` module
+=================================
+
+Using ``add_integer``
+---------------------
+
+This file is in restructured text format.
+First import ``add_integer`` from the ``0-add_integer`` module:
+
+    >>> add_integer = __import__('0-add_integer').add_integer
+     
+Basic usage:
+
+    >>> add_integer(1, 2)
+    3
+
+Double string input:
+
+    >>> add_integer("hello", "world")
+    Traceback (most recent call last):
+    ...
+    TypeError: a must be an integer
+
+Single integer:
+
+    >>> add_integer(9)
+    107
+
+Float test:
+
+    >>> add_integer(0.3, 4.5)
+    4
+
+Negative float as both parameters:
+
+    >>> add_integer(-34.2, -22.1)
+    -56
+
+List as first parameter:
+
+    >>> add_integer([3], 2)
+    Traceback (most recent call last):
+    ...
+    TypeError: a must be an integer
+
+List as second integer:
+
+    >>> add_integer(2, [9])
+    Traceback (most recent call last):
+    ...
+    TypeError: b must be an integer
+
+Empty parameters:
+
+    >>> add_integer()
+    Traceback (most recent call last):
+    ...
+    TypeError: add_integer() missing 1 required positional argument: 'a'

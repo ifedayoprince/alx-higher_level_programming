@@ -1,0 +1,4170 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <meta name="description" content="">
+    <meta name="google" content="notranslate">
+
+      <script>
+    window.dataLayer = window.dataLayer || [];
+    dataLayer.push({"userId":482137,"visitorType":"student","batch":{"id":126,"fullNameWithC":"LOS-0823 (C#19)","schoolLocation":{"id":3,"name":"Lagos"}},"curriculum":{"id":1,"name":"SE Foundations"}});
+
+    window.gtm_user_custom_event = function (name, options) {
+      if (typeof name === 'undefined') {
+        return;
+      }
+
+      window.dataLayer.push({
+        customEventOptions: typeof options !== 'undefined' ? options : {},
+        event: name,
+      });
+    }
+  </script>
+
+  <!-- Google Tag Manager -->
+  <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+  new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+  j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+  'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+  })(window,document,'script','dataLayer','GTM-N4C8MF2');</script>
+  <!-- End Google Tag Manager -->
+
+
+    <title>Project: 0x0B. Python - Input/Output | Lagos Intranet</title>
+
+      <link rel="stylesheet" href="https://use.typekit.net/xgz4ilr.css">
+      <link rel="stylesheet" media="all" href="/assets/application_alx-8941610700856adf24a6e389e4f744b0cefa6db7b3bc8157ea63b16ddcf11590.css" />
+      <script src="https://www.gstatic.com/charts/loader.js"></script>
+      <script src="/assets/application-e108fb75f939d72d47f0e99c7163aee8c5572427c1e62e5b50334df42d03f2d3.js"></script>
+      <link rel="shortcut icon" type="image/x-icon" href="/favicon_alx.ico" />
+      <meta name="csrf-param" content="authenticity_token" />
+<meta name="csrf-token" content="2nFkM0_CxkrHHAncdmAqsAFAlm3BEcPxbbL6zgA9ofZ33suXReZaPNxswSxeWez1zeZZXdsNetErDUIcqXiQlQ" />
+
+      <link rel="apple-touch-icon" href="/apple-touch-icon_alx.png">
+
+      <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+      <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+        <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+      <![endif]-->
+
+      <!-- Store user timezone -->
+      <script>
+        Cookies.set('timezone', (new Date()).getTimezoneOffset() / -60.0);
+      </script>
+
+      <!-- intro.js for interactive onboarding -->
+
+      <!-- React -->
+      <script src="/packs/js/application-cee6709d99758d08c595.js"></script>
+      <link rel="stylesheet" media="screen" href="/packs/css/application-87456da7.css" />
+  </head>
+
+  <body class="signed_in env_production notranslate"
+        translate="no"
+        class="notranslate"
+        data-theme-suffix="_alx">
+      <!-- Google Tag Manager (noscript) -->
+  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-N4C8MF2"
+  height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+  <!-- End Google Tag Manager (noscript) -->
+
+
+      <input type="hidden" id="hbtn-slack-url" value="https://alx-students.slack.com">
+      <nav class="navbar navbar-default navbar-fixed-top topbar visible-xs">
+  <div class="navbar-header">
+    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-mobile" aria-expanded="false">
+      <span class="sr-only">Toggle navigation</span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+    </button>
+
+    <a class="navbar-brand" href="/">
+      <div class="logo"></div>
+</a>  </div>
+
+  <div class="collapse navbar-collapse navigation" id="navbar-mobile">
+    <ul class="nav navbar-nav">
+      
+
+
+    <li data-container="body" data-placement="right" data-toggle="tooltip" title="My Planning"><a href="/planning/me"><div class="icon "><i aria-hidden="true" class="fa-solid fa-calendar "></i></div><div class="visible-xs">My Planning</div></a></li>
+    <li data-container="body" data-placement="right" data-toggle="tooltip" id="sidebar-current-projects-item" title="Projects"><a href="/projects/current"><div class="icon "><i aria-hidden="true" class="fa-solid fa-code-fork "></i></div><div class="visible-xs">Projects</div></a></li>
+    <li data-container="body" data-placement="right" data-toggle="tooltip" title="QA Reviews I can make"><a href="/corrections/to_review"><div class="icon "><i aria-hidden="true" class="fa-solid fa-check "></i></div><div class="visible-xs">QA Reviews I can make</div></a></li>
+    
+    <li data-container="body" data-placement="right" data-toggle="tooltip" title="Evaluation quizzes"><a href="/dashboards/my_current_evaluation_quizzes"><div class="icon "><i aria-hidden="true" class="fa-solid fa-question "></i></div><div class="visible-xs">Evaluation quizzes</div></a></li>
+
+    <hr title="My resources">
+
+    <li data-container="body" data-placement="right" data-toggle="tooltip" title="Curriculums"><a href="/dashboards/my_curriculums"><div class="icon "><i aria-hidden="true" class="fa-solid fa-graduation-cap "></i></div><div class="visible-xs">Curriculums</div></a></li>
+    <li data-container="body" data-placement="right" data-toggle="tooltip" id="sidebar-concepts-item" title="Concepts"><a href="/concepts"><div class="icon "><i aria-hidden="true" class="fa-solid fa-file-text "></i></div><div class="visible-xs">Concepts</div></a></li>
+    <li data-container="body" data-placement="right" data-toggle="tooltip" id="sidebar-dashboards-video-rooms" title="Conference rooms"><a href="/dashboards/video_rooms"><div class="icon "><i aria-hidden="true" class="fa-solid fa-comments "></i></div><div class="visible-xs">Conference rooms</div></a></li>
+    <li data-container="body" data-placement="right" data-toggle="tooltip" title="Servers"><a href="/servers"><div class="icon "><i aria-hidden="true" class="fa-solid fa-server "></i></div><div class="visible-xs">Servers</div></a></li>
+    <li data-container="body" data-placement="right" data-toggle="tooltip" id="sidebar-dashboards-my-containers" title="Sandboxes"><a href="/user_containers/current"><div class="icon "><i aria-hidden="true" class="fa-solid fa-terminal "></i></div><div class="visible-xs">Sandboxes</div></a></li>
+    
+    <li data-container="body" data-placement="right" data-toggle="tooltip" title="Video on demand"><a href="/dashboards/videos"><div class="icon "><i aria-hidden="true" class="fa-solid fa-film "></i></div><div class="visible-xs">Video on demand</div></a></li>
+
+      <hr title="My campus">
+
+      
+      <li data-container="body" data-placement="right" data-toggle="tooltip" title="Peers"><a href="/users/peers"><div class="icon "><i aria-hidden="true" class="fa-solid fa-users "></i></div><div class="visible-xs">Peers</div></a></li>
+      <li data-container="body" data-placement="right" data-toggle="tooltip" title="Captain&#39;s Logs"><a href="/dashboards/my_captain_log"><div class="icon "><i aria-hidden="true" class="fa-solid fa-book "></i></div><div class="visible-xs">Captain&#39;s Logs</div></a></li>
+
+
+<hr class="visible-xs">
+
+<li>
+
+      <div
+      data-container="body"
+      data-placement="right"
+      data-toggle="tooltip"
+      title="Discord">
+        <a rel="noreferrer" target="_blank" href="https://discord.com/app">
+          <div class="icon discord">
+            <i aria-hidden="true" class="fa-brands fa-discord "></i>
+          </div>
+          <div class="visible-xs">Discord</div>
+</a>      </div>
+
+  <div
+    data-container="body"
+    data-placement="right"
+    data-toggle="tooltip"
+    title="My Profile">
+    <a href="/users/my_profile">
+        <div class="image ">
+          <div class="inner" style="background-image: url('https://s3.amazonaws.com/alx-intranet.hbtn.io/users/photos/000/482/137/thumb/BackgroundEraser_20230530_215733836.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&amp;X-Amz-Credential=AKIARDDGGGOUSBVO6H7D%2F20240114%2Fus-east-1%2Fs3%2Faws4_request&amp;X-Amz-Date=20240114T145958Z&amp;X-Amz-Expires=600&amp;X-Amz-SignedHeaders=host&amp;X-Amz-Signature=8706022cb0f5ccbc80918ddd4e1138e032b0f0700507e7b5801bbf8b6c663d0f')"></div>
+        </div>
+
+      <div class="visible-xs">My Profile</div>
+</a>  </div>
+</li>
+
+
+    </ul>
+  </div>
+</nav>
+
+      <div class="hidden-xs navigation sidebar">
+  <a class="logo-container" href="/">
+    <div class="logo"></div>
+</a>
+  <ul>
+    
+
+
+    <li data-container="body" data-placement="right" data-toggle="tooltip" title="My Planning"><a href="/planning/me"><div class="icon "><i aria-hidden="true" class="fa-solid fa-calendar "></i></div><div class="visible-xs">My Planning</div></a></li>
+    <li data-container="body" data-placement="right" data-toggle="tooltip" id="sidebar-current-projects-item" title="Projects"><a href="/projects/current"><div class="icon "><i aria-hidden="true" class="fa-solid fa-code-fork "></i></div><div class="visible-xs">Projects</div></a></li>
+    <li data-container="body" data-placement="right" data-toggle="tooltip" title="QA Reviews I can make"><a href="/corrections/to_review"><div class="icon "><i aria-hidden="true" class="fa-solid fa-check "></i></div><div class="visible-xs">QA Reviews I can make</div></a></li>
+    
+    <li data-container="body" data-placement="right" data-toggle="tooltip" title="Evaluation quizzes"><a href="/dashboards/my_current_evaluation_quizzes"><div class="icon "><i aria-hidden="true" class="fa-solid fa-question "></i></div><div class="visible-xs">Evaluation quizzes</div></a></li>
+
+    <hr title="My resources">
+
+    <li data-container="body" data-placement="right" data-toggle="tooltip" title="Curriculums"><a href="/dashboards/my_curriculums"><div class="icon "><i aria-hidden="true" class="fa-solid fa-graduation-cap "></i></div><div class="visible-xs">Curriculums</div></a></li>
+    <li data-container="body" data-placement="right" data-toggle="tooltip" id="sidebar-concepts-item" title="Concepts"><a href="/concepts"><div class="icon "><i aria-hidden="true" class="fa-solid fa-file-text "></i></div><div class="visible-xs">Concepts</div></a></li>
+    <li data-container="body" data-placement="right" data-toggle="tooltip" id="sidebar-dashboards-video-rooms" title="Conference rooms"><a href="/dashboards/video_rooms"><div class="icon "><i aria-hidden="true" class="fa-solid fa-comments "></i></div><div class="visible-xs">Conference rooms</div></a></li>
+    <li data-container="body" data-placement="right" data-toggle="tooltip" title="Servers"><a href="/servers"><div class="icon "><i aria-hidden="true" class="fa-solid fa-server "></i></div><div class="visible-xs">Servers</div></a></li>
+    <li data-container="body" data-placement="right" data-toggle="tooltip" id="sidebar-dashboards-my-containers" title="Sandboxes"><a href="/user_containers/current"><div class="icon "><i aria-hidden="true" class="fa-solid fa-terminal "></i></div><div class="visible-xs">Sandboxes</div></a></li>
+    
+    <li data-container="body" data-placement="right" data-toggle="tooltip" title="Video on demand"><a href="/dashboards/videos"><div class="icon "><i aria-hidden="true" class="fa-solid fa-film "></i></div><div class="visible-xs">Video on demand</div></a></li>
+
+      <hr title="My campus">
+
+      
+      <li data-container="body" data-placement="right" data-toggle="tooltip" title="Peers"><a href="/users/peers"><div class="icon "><i aria-hidden="true" class="fa-solid fa-users "></i></div><div class="visible-xs">Peers</div></a></li>
+      <li data-container="body" data-placement="right" data-toggle="tooltip" title="Captain&#39;s Logs"><a href="/dashboards/my_captain_log"><div class="icon "><i aria-hidden="true" class="fa-solid fa-book "></i></div><div class="visible-xs">Captain&#39;s Logs</div></a></li>
+
+
+<hr class="visible-xs">
+
+<li>
+
+      <div
+      data-container="body"
+      data-placement="right"
+      data-toggle="tooltip"
+      title="Discord">
+        <a rel="noreferrer" target="_blank" href="https://discord.com/app">
+          <div class="icon discord">
+            <i aria-hidden="true" class="fa-brands fa-discord "></i>
+          </div>
+          <div class="visible-xs">Discord</div>
+</a>      </div>
+
+  <div
+    data-container="body"
+    data-placement="right"
+    data-toggle="tooltip"
+    title="My Profile">
+    <a href="/users/my_profile">
+        <div class="image ">
+          <div class="inner" style="background-image: url('https://s3.amazonaws.com/alx-intranet.hbtn.io/users/photos/000/482/137/thumb/BackgroundEraser_20230530_215733836.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&amp;X-Amz-Credential=AKIARDDGGGOUSBVO6H7D%2F20240114%2Fus-east-1%2Fs3%2Faws4_request&amp;X-Amz-Date=20240114T145958Z&amp;X-Amz-Expires=600&amp;X-Amz-SignedHeaders=host&amp;X-Amz-Signature=8706022cb0f5ccbc80918ddd4e1138e032b0f0700507e7b5801bbf8b6c663d0f')"></div>
+        </div>
+
+      <div class="visible-xs">My Profile</div>
+</a>  </div>
+</li>
+
+
+  </ul>
+</div>
+
+
+    <main>
+        <div id="layout-bars">
+          
+          
+          
+          
+          
+          
+        </div>
+
+      <article class="">
+
+        
+<div class="project row">
+  <div class="col-xs-12 col-md-10 col-lg-8 contains-images">
+
+      <h1 class="gap">0x0B. Python - Input/Output</h1>
+
+  <div data-react-class="tags/Tags" data-react-props="{&quot;tags&quot;:[{&quot;id&quot;:19,&quot;value&quot;:&quot;Python&quot;,&quot;author_id&quot;:null,&quot;created_at&quot;:&quot;2022-06-16T01:59:38.000Z&quot;,&quot;updated_at&quot;:&quot;2022-06-16T01:59:38.000Z&quot;}]}" data-react-cache-id="tags/Tags-0"></div>
+
+  <div data-react-class="projects/ProjectMetadata" data-react-props="{&quot;metadata&quot;:{&quot;author&quot;:&quot;Guillaume&quot;,&quot;weight&quot;:1,&quot;correction&quot;:{&quot;released&quot;:true,&quot;requires_auto_correction&quot;:true,&quot;requires_manual_correction&quot;:false},&quot;bpi&quot;:{&quot;current&quot;:false,&quot;in_second_deadline&quot;:false,&quot;starts_at&quot;:&quot;2024-01-09T06:00:00.000+01:00&quot;,&quot;ends_at&quot;:&quot;2024-01-10T06:00:00.000+01:00&quot;,&quot;second_deadline_at&quot;:&quot;2024-01-11T06:00:00.000+01:00&quot;}}}" data-react-cache-id="projects/ProjectMetadata-0"></div>
+
+  <div class="sm-gap clean well">
+  <h4>In a nutshell&hellip;</h4>
+  <ul>
+
+
+      <li>
+        <strong>Auto QA review:</strong>
+          0.0/140 mandatory
+            &
+            0.0/21 optional
+      </li>
+    <li>
+      <strong>Altogether:</strong>
+        &nbsp;<strong>0.0%</strong>
+        <ul>
+          <li>Mandatory: 0.0%</li>
+            <li>Optional: 0.0%</li>
+            <li>
+              Calculation:&nbsp;
+                  0.0%
+                    + (0.0% * 0.0%)
+              &nbsp;==&nbsp;<strong>0.0%</strong>
+            </li>
+        </ul>
+    </li>
+  </ul>
+
+</div>
+
+
+
+
+    
+
+
+    <div id="project_id" style="display: none" data-project-id="260"></div>
+
+
+
+      
+
+      
+
+      <div class="panel panel-default" id="project-description">
+  <div class="panel-body">
+    <h2>Resources</h2>
+
+<p><strong>Read or watch</strong>:</p>
+
+<ul>
+<li><a href="/rltoken/hFlrZ9E1XROVWcjwwyF52A" title="7.2. Reading and Writing Files" target="_blank">7.2. Reading and Writing Files</a> </li>
+<li><a href="/rltoken/0OZ9fzPRjmKWZsID9IRJSg" title="8.7. Predefined Clean-up Actions" target="_blank">8.7. Predefined Clean-up Actions</a> </li>
+<li><a href="/rltoken/0osPfNU5d3Shh9PFWgYm9A" title="Dive Into Python 3: Chapter 11. Files" target="_blank">Dive Into Python 3: Chapter 11. Files</a> (<em>until &ldquo;11.4 Binary Files&rdquo; (included)</em>)</li>
+<li><a href="/rltoken/l0B9_pFn1tgBvE7FrT14Zw" title="JSON encoder and decoder" target="_blank">JSON encoder and decoder</a> </li>
+<li><a href="/rltoken/ZvtAdnUzjnEVu1sjg3m_tQ" title="Learn to Program 8 : Reading / Writing Files" target="_blank">Learn to Program 8 : Reading / Writing Files</a> </li>
+<li><a href="/rltoken/Ej8YjhxLXpzHW7_rNMd9XQ" title="Automate the Boring Stuff with Python" target="_blank">Automate the Boring Stuff with Python</a> (<em>ch. 8 p 180-183 and ch. 14 p 326-333</em>)</li>
+<li><a href="/rltoken/TUatlpPV27S4zPogmQIPnQ" title="All about py-file I/O" target="_blank">All about py-file I/O</a></li>
+</ul>
+
+<h2>Learning Objectives</h2>
+
+<p>At the end of this project, you are expected to be able to <a href="/rltoken/x2TxSf8LF65dpNOPSGtXgQ" title="explain to anyone" target="_blank">explain to anyone</a>, <strong>without the help of Google</strong>:</p>
+
+<h3>General</h3>
+
+<ul>
+<li>Why Python programming is awesome</li>
+<li>How to open a file</li>
+<li>How to write text in a file</li>
+<li>How to read the full content of a file </li>
+<li>How to read a file line by line</li>
+<li>How to move the cursor in a file</li>
+<li>How to make sure a file is closed after using it</li>
+<li>What is and how to use the <code>with</code> statement</li>
+<li>What is <code>JSON</code></li>
+<li>What is serialization</li>
+<li>What is deserialization</li>
+<li>How to convert a Python data structure to a JSON string </li>
+<li>How to convert a JSON string to a Python data structure</li>
+</ul>
+
+<h3>Copyright - Plagiarism</h3>
+
+<ul>
+<li>You are tasked to come up with solutions for the tasks below yourself to meet with the above learning objectives.</li>
+<li>You will not be able to meet the objectives of this or any following project by copying and pasting someone else&rsquo;s work. </li>
+<li>You are not allowed to publish any content of this project.</li>
+<li>Any form of plagiarism is strictly forbidden and will result in removal from the program.</li>
+</ul>
+
+<h2>Requirements</h2>
+
+<h3>Python Scripts</h3>
+
+<ul>
+<li>Allowed editors: <code>vi</code>, <code>vim</code>, <code>emacs</code></li>
+<li>All your files will be interpreted/compiled on Ubuntu 20.04 LTS using python3 (version 3.8.5)</li>
+<li>All your files should end with a new line</li>
+<li>The first line of all your files should be exactly <code>#!/usr/bin/python3</code></li>
+<li>A <code>README.md</code> file, at the root of the folder of the project, is mandatory</li>
+<li>Your code should use the pycodestyle (version <code>2.8.*</code>)</li>
+<li>All your files must be executable</li>
+<li>The length of your files will be tested using <code>wc</code></li>
+</ul>
+
+<h3>Python Test Cases</h3>
+
+<ul>
+<li>Allowed editors: <code>vi</code>, <code>vim</code>, <code>emacs</code></li>
+<li>All your files should end with a new line</li>
+<li>All your test files should be inside a folder <code>tests</code></li>
+<li>All your test files should be text files (extension: <code>.txt</code>)</li>
+<li>All your tests should be executed by using this command: <code>python3 -m doctest ./tests/*</code></li>
+<li>All your modules should have a documentation (<code>python3 -c &#39;print(__import__(&quot;my_module&quot;).__doc__)&#39;</code>)</li>
+<li>All your classes should have a documentation (<code>python3 -c &#39;print(__import__(&quot;my_module&quot;).MyClass.__doc__)&#39;</code>)</li>
+<li>All your functions (inside and outside a class) should have a documentation (<code>python3 -c &#39;print(__import__(&quot;my_module&quot;).my_function.__doc__)&#39;</code> and <code>python3 -c &#39;print(__import__(&quot;my_module&quot;).MyClass.my_function.__doc__)&#39;</code>)</li>
+<li>A documentation is not a simple word, it&rsquo;s a real sentence explaining what&rsquo;s the purpose of the module, class or method (the length of it will be verified)</li>
+<li>We strongly encourage you to work together on test cases, so that you don&rsquo;t miss any edge case</li>
+</ul>
+
+  </div>
+</div>
+
+
+      
+
+      
+
+        
+          <h2 class="gap">Tasks</h2>
+
+    <div data-role="task1331" data-position="1" id="task-num-0">
+      <div class="panel panel-default task-card " id="task-1331">
+  <span id="user_id" data-id="482137"></span>
+
+  <div class="panel-heading panel-heading-actions">
+    <h3 class="panel-title">
+      0. Read file
+    </h3>
+
+    <div>
+        <span class="label label-info">
+          mandatory
+        </span>
+    </div>
+  </div>
+
+  <div class="panel-body">
+    <span id="user_id" data-id="482137"></span>
+
+    <!-- Progress vs Score -->
+      <div class="task_progress_score_bar" data-task-id="1331" data-correction-id="21444745">
+        <div class="task_progress_bar" style="width: 0.0%">
+          <div class="task_score_bar" style="width: NaN%">
+          </div>
+        </div>
+        <div class="task_progress_score_text">
+          Score: <span class="task_score_value">0.0%</span> (<span class="task_progress_value">Checks completed: 0.0%</span>)
+        </div>
+      </div>
+
+    <!-- Task Body -->
+    <p>Write a function that reads a text file (<code>UTF8</code>) and prints it to stdout:</p>
+
+<ul>
+<li>Prototype: <code>def read_file(filename=&quot;&quot;):</code></li>
+<li>You must use the <code>with</code> statement</li>
+<li>You don&rsquo;t need to manage <code>file permission</code> or <code>file doesn&#39;t exist</code> exceptions.</li>
+<li>You are not allowed to import any module</li>
+</ul>
+
+<pre><code>guillaume@ubuntu:~/0x0B$ cat 0-main.py
+#!/usr/bin/python3
+read_file = __import__(&#39;0-read_file&#39;).read_file
+
+read_file(&quot;my_file_0.txt&quot;)
+
+guillaume@ubuntu:~/0x0B$ cat my_file_0.txt
+We offer a truly innovative approach to education:
+focus on building reliable applications and scalable systems, take on real-world challenges, collaborate with your peers. 
+
+A school every software engineer would have dreamt of!
+guillaume@ubuntu:~/0x0B$ ./0-main.py
+We offer a truly innovative approach to education:
+focus on building reliable applications and scalable systems, take on real-world challenges, collaborate with your peers. 
+
+A school every software engineer would have dreamt of!
+guillaume@ubuntu:~/0x0B$ 
+</code></pre>
+
+<p><strong>No test cases needed</strong></p>
+
+  </div>
+
+  <div class="list-group">
+    <!-- Task URLs -->
+
+    <!-- Github information -->
+      <div class="list-group-item">
+        <p><strong>Repo:</strong></p>
+        <ul>
+          <li>GitHub repository: <code>alx-higher_level_programming</code></li>
+            <li>Directory: <code>0x0B-python-input_output</code></li>
+            <li>File: <code>0-read_file.py</code></li>
+        </ul>
+      </div>
+
+    <!-- Self-paced manual review -->
+  </div>
+
+  <!-- Panel footer - Controls -->
+  <div class="panel-footer">
+      <div class="align-items-center d-flex justify-content-between">
+        
+<div>
+    <button class="student_task_done btn btn-default btn-sm no" data-task-id="1331">
+      <span class="no"><i aria-hidden="true" class="fa-regular fa-square "></i></span>
+      <span class="yes"><i aria-hidden="true" class="fa-regular fa-square-check "></i></span>
+      <span class="pending"><i aria-hidden="true" class="fa-solid fa-spinner  fa-spin-pulse"></i></span>
+      Done<span class="no pending">?</span><span class="yes">!</span>
+    </button>
+
+  <button class="student-task-done-by btn btn-default btn-sm" data-task-id="1331" data-batch-id="126" data-toggle="modal" data-target="#task-1331-users-done-modal">
+    Help
+  </button>
+  <div class="modal fade users-done-modal" id="task-1331-users-done-modal" data-task-id="1331" data-batch-id="126">
+    <div class="modal-dialog">
+        <div class="modal-content">
+        <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <h4 class="modal-title">Learners who are done with "0. Read file"</h4>
+        </div>
+        <div class="modal-body">
+            <div class="list-group">
+            </div>
+            <div class="spinner">
+                <div class="bounce1"></div>
+                <div class="bounce2"></div>
+                <div class="bounce3"></div>
+            </div>
+            <div class="error"></div>
+        </div>
+        </div>
+    </div>
+</div>
+
+
+      <button class="btn btn-default btn-sm check-your-task-1331-modal-button" data-task-id="1331" data-toggle="modal" data-target="#task-test-correction-1331-correction-modal" id="task-num-0-check-code-btn" data-gtm-custom-event-name="task_checker_modal" data-gtm-custom-event-options='{&quot;taskId&quot;:1331}'>
+          Check your code
+      </button>
+      <div class="modal fade task_correction_modal student_modal" id="task-test-correction-1331-correction-modal">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title">Correction of "0. Read file"</h4>
+            </div>
+            <div class="modal-body">
+                <div class="actions">
+                    <center>
+                        <div class="alert alert-info hidden"></div>
+
+                        <button name="button" type="submit" class="btn btn-primary correction_request_test_send" data-task-id="1331">Start a new test</button>
+                        <button class="btn btn-default close-modal hidden" data-dismiss="modal" type="button">Close</button>
+
+                        <div class="spinner" style="display: none;">
+                            <div class="bounce1"></div>
+                            <div class="bounce2"></div>
+                            <div class="bounce3"></div>
+                        </div>
+                        <div class="error"></div>
+                        <div class="info"></div>
+                    </center>
+                </div>
+                <div class="result"></div>
+
+                <div class="help">
+    <button data-task-id="1331">
+        <i aria-hidden="true" class="fa-solid fa-circle-info "></i>
+    </button>
+    <div class="help-container" data-task-id="1331">
+        <div class="check-line">
+            <div class="check-inline requirement success">
+                <i aria-hidden="true" class="fa-solid fa-circle-check "></i>
+                Requirement success
+            </div>
+            <div class="check-inline requirement fail">
+                <i aria-hidden="true" class="fa-solid fa-circle-xmark "></i>
+                Requirement fail
+            </div>
+        </div>
+        <div class="check-line">
+            <div class="check-inline code success">
+                <i aria-hidden="true" class="fa-solid fa-circle-check "></i>
+                Code success
+            </div>
+            <div class="check-inline code fail">
+                <i aria-hidden="true" class="fa-solid fa-circle-xmark "></i>
+                Code fail
+            </div>
+        </div>
+        <div class="check-line">
+            <div class="check-inline efficiency success">
+                <i aria-hidden="true" class="fa-solid fa-circle-check "></i>
+                Efficiency success
+            </div>
+            <div class="check-inline efficiency fail">
+                <i aria-hidden="true" class="fa-solid fa-circle-xmark "></i>
+                Efficiency fail
+            </div>
+        </div>
+        <div class="check-line">
+            <div class="check-inline answer success">
+                <i aria-hidden="true" class="fa-solid fa-circle-check "></i>
+                Text answer success
+            </div>
+            <div class="check-inline answer fail">
+                <i aria-hidden="true" class="fa-solid fa-circle-xmark "></i>
+                Text answer fail
+            </div>
+        </div>
+        <div class="check-line">
+            <div class="check-inline requirement fail offline">
+                <i aria-hidden="true" class="fa-solid fa-circle-xmark "></i>
+                Skipped - Previous check failed
+            </div>
+        </div>
+    </div>
+</div>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+
+      <button class="btn btn-primary btn-sm task_ask_new_correction " data-task-id="1331" data-correction-id="21444745">
+        Ask for a new correction
+        <span class="in_progress_info">: in progress...</span>
+        <span class="error_occurred_info">: an error occurred</span>
+      </button>
+
+    <button class="btn btn-default btn-sm" data-toggle="modal" data-target="#container-specs-modal" data-gtm-custom-event-name="task_sandbox_modal" data-gtm-custom-event-options="{&quot;taskId&quot;:1331}"><i aria-hidden="true" class="fa-solid fa-terminal "></i><span>Get a sandbox</span></button>
+
+      <button class="btn btn-default btn-sm" data-task-id="1331" data-toggle="modal" data-target="#task-qa-review-1331-modal" data-gtm-custom-event-name="task_qa_review_modal" data-gtm-custom-event-options='{&quot;taskId&quot;:1331}'>
+        QA Review
+      </button>
+      <div class="modal fade task_get_qa_review" id="task-qa-review-1331-modal" data-correction-id="21444745" data-task-id="1331">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title">0. Read file</h4>
+            </div>
+            <div class="modal-body">
+                <div class="spinner gap">
+                    <div class="bounce1"></div>
+                    <div class="bounce2"></div>
+                    <div class="bounce3"></div>
+                </div>
+                <div class="review-container">
+                    <div class="review-corrector"></div>
+                    <div class="review-github well" style="display:none">
+                        <h5>Commit used:</h5>
+                        <ul>
+                            <li style="display:none"><strong>User:</strong> <code class="review-github-id"></code> <span class="review-github-name">---</span></li>
+                            <li style="display:none"><strong>URL:</strong> <a class="review-github-url" target="_blank">Click here</a></li>
+                            <li style="display:none"><strong>ID:</strong> <code class="review-github-commit_id">---</code></li>
+                            <li style="display:none"><strong>Author:</strong> <span class="review-github-committer_username">---</span></li>
+                            <li style="display:none"><strong>Subject:</strong> <em class="review-github-subject">---</em></li>
+                            <li style="display:none"><strong>Date:</strong> <span class="review-github-datetime">---</span></li>
+                        </ul>
+                    </div>
+                    <div class="review-percentage_down"></div>
+                    <ul class="review-checks list-group sm-gap"></ul>
+                    <div class="review-comment"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+</div>
+
+
+        <div class="fs-4">
+        </div>
+      </div>
+
+
+  </div>
+</div>
+
+    </div>
+    <div data-role="task1334" data-position="4" id="task-num-1">
+      <div class="panel panel-default task-card " id="task-1334">
+  <span id="user_id" data-id="482137"></span>
+
+  <div class="panel-heading panel-heading-actions">
+    <h3 class="panel-title">
+      1. Write to a file
+    </h3>
+
+    <div>
+        <span class="label label-info">
+          mandatory
+        </span>
+    </div>
+  </div>
+
+  <div class="panel-body">
+    <span id="user_id" data-id="482137"></span>
+
+    <!-- Progress vs Score -->
+      <div class="task_progress_score_bar" data-task-id="1334" data-correction-id="21444745">
+        <div class="task_progress_bar" style="width: 0.0%">
+          <div class="task_score_bar" style="width: NaN%">
+          </div>
+        </div>
+        <div class="task_progress_score_text">
+          Score: <span class="task_score_value">0.0%</span> (<span class="task_progress_value">Checks completed: 0.0%</span>)
+        </div>
+      </div>
+
+    <!-- Task Body -->
+    <p>Write a function that writes a string to a text file (<code>UTF8</code>) and returns the number of characters written:</p>
+
+<ul>
+<li>Prototype: <code>def write_file(filename=&quot;&quot;, text=&quot;&quot;):</code></li>
+<li>You must use the <code>with</code> statement</li>
+<li>You don&rsquo;t need to manage file permission exceptions.</li>
+<li>Your function should create the file if doesn&rsquo;t exist.</li>
+<li>Your function should overwrite the content of the file if it already exists.</li>
+<li>You are not allowed to import any module</li>
+</ul>
+
+<pre><code>guillaume@ubuntu:~/0x0B$ cat 1-main.py
+#!/usr/bin/python3
+write_file = __import__(&#39;1-write_file&#39;).write_file
+
+nb_characters = write_file(&quot;my_first_file.txt&quot;, &quot;This School is so cool!\n&quot;)
+print(nb_characters)
+
+guillaume@ubuntu:~/0x0B$ ./1-main.py
+29
+guillaume@ubuntu:~/0x0B$ cat my_first_file.txt
+This School is so cool!
+guillaume@ubuntu:~/0x0B$ 
+</code></pre>
+
+<p><strong>No test cases needed</strong></p>
+
+  </div>
+
+  <div class="list-group">
+    <!-- Task URLs -->
+
+    <!-- Github information -->
+      <div class="list-group-item">
+        <p><strong>Repo:</strong></p>
+        <ul>
+          <li>GitHub repository: <code>alx-higher_level_programming</code></li>
+            <li>Directory: <code>0x0B-python-input_output</code></li>
+            <li>File: <code>1-write_file.py</code></li>
+        </ul>
+      </div>
+
+    <!-- Self-paced manual review -->
+  </div>
+
+  <!-- Panel footer - Controls -->
+  <div class="panel-footer">
+      <div class="align-items-center d-flex justify-content-between">
+        
+<div>
+    <button class="student_task_done btn btn-default btn-sm no" data-task-id="1334">
+      <span class="no"><i aria-hidden="true" class="fa-regular fa-square "></i></span>
+      <span class="yes"><i aria-hidden="true" class="fa-regular fa-square-check "></i></span>
+      <span class="pending"><i aria-hidden="true" class="fa-solid fa-spinner  fa-spin-pulse"></i></span>
+      Done<span class="no pending">?</span><span class="yes">!</span>
+    </button>
+
+  <button class="student-task-done-by btn btn-default btn-sm" data-task-id="1334" data-batch-id="126" data-toggle="modal" data-target="#task-1334-users-done-modal">
+    Help
+  </button>
+  <div class="modal fade users-done-modal" id="task-1334-users-done-modal" data-task-id="1334" data-batch-id="126">
+    <div class="modal-dialog">
+        <div class="modal-content">
+        <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <h4 class="modal-title">Learners who are done with "1. Write to a file"</h4>
+        </div>
+        <div class="modal-body">
+            <div class="list-group">
+            </div>
+            <div class="spinner">
+                <div class="bounce1"></div>
+                <div class="bounce2"></div>
+                <div class="bounce3"></div>
+            </div>
+            <div class="error"></div>
+        </div>
+        </div>
+    </div>
+</div>
+
+
+      <button class="btn btn-default btn-sm check-your-task-1334-modal-button" data-task-id="1334" data-toggle="modal" data-target="#task-test-correction-1334-correction-modal" id="task-num-1-check-code-btn" data-gtm-custom-event-name="task_checker_modal" data-gtm-custom-event-options='{&quot;taskId&quot;:1334}'>
+          Check your code
+      </button>
+      <div class="modal fade task_correction_modal student_modal" id="task-test-correction-1334-correction-modal">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title">Correction of "1. Write to a file"</h4>
+            </div>
+            <div class="modal-body">
+                <div class="actions">
+                    <center>
+                        <div class="alert alert-info hidden"></div>
+
+                        <button name="button" type="submit" class="btn btn-primary correction_request_test_send" data-task-id="1334">Start a new test</button>
+                        <button class="btn btn-default close-modal hidden" data-dismiss="modal" type="button">Close</button>
+
+                        <div class="spinner" style="display: none;">
+                            <div class="bounce1"></div>
+                            <div class="bounce2"></div>
+                            <div class="bounce3"></div>
+                        </div>
+                        <div class="error"></div>
+                        <div class="info"></div>
+                    </center>
+                </div>
+                <div class="result"></div>
+
+                <div class="help">
+    <button data-task-id="1334">
+        <i aria-hidden="true" class="fa-solid fa-circle-info "></i>
+    </button>
+    <div class="help-container" data-task-id="1334">
+        <div class="check-line">
+            <div class="check-inline requirement success">
+                <i aria-hidden="true" class="fa-solid fa-circle-check "></i>
+                Requirement success
+            </div>
+            <div class="check-inline requirement fail">
+                <i aria-hidden="true" class="fa-solid fa-circle-xmark "></i>
+                Requirement fail
+            </div>
+        </div>
+        <div class="check-line">
+            <div class="check-inline code success">
+                <i aria-hidden="true" class="fa-solid fa-circle-check "></i>
+                Code success
+            </div>
+            <div class="check-inline code fail">
+                <i aria-hidden="true" class="fa-solid fa-circle-xmark "></i>
+                Code fail
+            </div>
+        </div>
+        <div class="check-line">
+            <div class="check-inline efficiency success">
+                <i aria-hidden="true" class="fa-solid fa-circle-check "></i>
+                Efficiency success
+            </div>
+            <div class="check-inline efficiency fail">
+                <i aria-hidden="true" class="fa-solid fa-circle-xmark "></i>
+                Efficiency fail
+            </div>
+        </div>
+        <div class="check-line">
+            <div class="check-inline answer success">
+                <i aria-hidden="true" class="fa-solid fa-circle-check "></i>
+                Text answer success
+            </div>
+            <div class="check-inline answer fail">
+                <i aria-hidden="true" class="fa-solid fa-circle-xmark "></i>
+                Text answer fail
+            </div>
+        </div>
+        <div class="check-line">
+            <div class="check-inline requirement fail offline">
+                <i aria-hidden="true" class="fa-solid fa-circle-xmark "></i>
+                Skipped - Previous check failed
+            </div>
+        </div>
+    </div>
+</div>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+
+      <button class="btn btn-primary btn-sm task_ask_new_correction " data-task-id="1334" data-correction-id="21444745">
+        Ask for a new correction
+        <span class="in_progress_info">: in progress...</span>
+        <span class="error_occurred_info">: an error occurred</span>
+      </button>
+
+    <button class="btn btn-default btn-sm" data-toggle="modal" data-target="#container-specs-modal" data-gtm-custom-event-name="task_sandbox_modal" data-gtm-custom-event-options="{&quot;taskId&quot;:1334}"><i aria-hidden="true" class="fa-solid fa-terminal "></i><span>Get a sandbox</span></button>
+
+      <button class="btn btn-default btn-sm" data-task-id="1334" data-toggle="modal" data-target="#task-qa-review-1334-modal" data-gtm-custom-event-name="task_qa_review_modal" data-gtm-custom-event-options='{&quot;taskId&quot;:1334}'>
+        QA Review
+      </button>
+      <div class="modal fade task_get_qa_review" id="task-qa-review-1334-modal" data-correction-id="21444745" data-task-id="1334">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title">1. Write to a file</h4>
+            </div>
+            <div class="modal-body">
+                <div class="spinner gap">
+                    <div class="bounce1"></div>
+                    <div class="bounce2"></div>
+                    <div class="bounce3"></div>
+                </div>
+                <div class="review-container">
+                    <div class="review-corrector"></div>
+                    <div class="review-github well" style="display:none">
+                        <h5>Commit used:</h5>
+                        <ul>
+                            <li style="display:none"><strong>User:</strong> <code class="review-github-id"></code> <span class="review-github-name">---</span></li>
+                            <li style="display:none"><strong>URL:</strong> <a class="review-github-url" target="_blank">Click here</a></li>
+                            <li style="display:none"><strong>ID:</strong> <code class="review-github-commit_id">---</code></li>
+                            <li style="display:none"><strong>Author:</strong> <span class="review-github-committer_username">---</span></li>
+                            <li style="display:none"><strong>Subject:</strong> <em class="review-github-subject">---</em></li>
+                            <li style="display:none"><strong>Date:</strong> <span class="review-github-datetime">---</span></li>
+                        </ul>
+                    </div>
+                    <div class="review-percentage_down"></div>
+                    <ul class="review-checks list-group sm-gap"></ul>
+                    <div class="review-comment"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+</div>
+
+
+        <div class="fs-4">
+        </div>
+      </div>
+
+
+  </div>
+</div>
+
+    </div>
+    <div data-role="task1335" data-position="5" id="task-num-2">
+      <div class="panel panel-default task-card " id="task-1335">
+  <span id="user_id" data-id="482137"></span>
+
+  <div class="panel-heading panel-heading-actions">
+    <h3 class="panel-title">
+      2. Append to a file
+    </h3>
+
+    <div>
+        <span class="label label-info">
+          mandatory
+        </span>
+    </div>
+  </div>
+
+  <div class="panel-body">
+    <span id="user_id" data-id="482137"></span>
+
+    <!-- Progress vs Score -->
+      <div class="task_progress_score_bar" data-task-id="1335" data-correction-id="21444745">
+        <div class="task_progress_bar" style="width: 0.0%">
+          <div class="task_score_bar" style="width: NaN%">
+          </div>
+        </div>
+        <div class="task_progress_score_text">
+          Score: <span class="task_score_value">0.0%</span> (<span class="task_progress_value">Checks completed: 0.0%</span>)
+        </div>
+      </div>
+
+    <!-- Task Body -->
+    <p>Write a function that appends a string at the end of a text file (<code>UTF8</code>) and returns the number of characters added:</p>
+
+<ul>
+<li>Prototype: <code>def append_write(filename=&quot;&quot;, text=&quot;&quot;):</code></li>
+<li>If the file doesn&rsquo;t exist, it should be created</li>
+<li>You must use the <code>with</code> statement</li>
+<li>You don&rsquo;t need to manage <code>file permission</code> or <code>file doesn&#39;t exist</code> exceptions.</li>
+<li>You are not allowed to import any module</li>
+</ul>
+
+<pre><code>guillaume@ubuntu:~/0x0B$ cat 2-main.py
+#!/usr/bin/python3
+append_write = __import__(&#39;2-append_write&#39;).append_write
+
+nb_characters_added = append_write(&quot;file_append.txt&quot;, &quot;This School is so cool!\n&quot;)
+print(nb_characters_added)
+
+guillaume@ubuntu:~/0x0B$ cat file_append.txt
+cat: file_append.txt: No such file or directory
+guillaume@ubuntu:~/0x0B$ ./2-main.py
+29
+guillaume@ubuntu:~/0x0B$ cat file_append.txt
+This School is so cool!
+guillaume@ubuntu:~/0x0B$ ./2-main.py
+29
+guillaume@ubuntu:~/0x0B$ cat file_append.txt
+This School is so cool!
+This School is so cool!
+guillaume@ubuntu:~/0x0B$ 
+</code></pre>
+
+<p><strong>No test cases needed</strong></p>
+
+  </div>
+
+  <div class="list-group">
+    <!-- Task URLs -->
+
+    <!-- Github information -->
+      <div class="list-group-item">
+        <p><strong>Repo:</strong></p>
+        <ul>
+          <li>GitHub repository: <code>alx-higher_level_programming</code></li>
+            <li>Directory: <code>0x0B-python-input_output</code></li>
+            <li>File: <code>2-append_write.py</code></li>
+        </ul>
+      </div>
+
+    <!-- Self-paced manual review -->
+  </div>
+
+  <!-- Panel footer - Controls -->
+  <div class="panel-footer">
+      <div class="align-items-center d-flex justify-content-between">
+        
+<div>
+    <button class="student_task_done btn btn-default btn-sm no" data-task-id="1335">
+      <span class="no"><i aria-hidden="true" class="fa-regular fa-square "></i></span>
+      <span class="yes"><i aria-hidden="true" class="fa-regular fa-square-check "></i></span>
+      <span class="pending"><i aria-hidden="true" class="fa-solid fa-spinner  fa-spin-pulse"></i></span>
+      Done<span class="no pending">?</span><span class="yes">!</span>
+    </button>
+
+  <button class="student-task-done-by btn btn-default btn-sm" data-task-id="1335" data-batch-id="126" data-toggle="modal" data-target="#task-1335-users-done-modal">
+    Help
+  </button>
+  <div class="modal fade users-done-modal" id="task-1335-users-done-modal" data-task-id="1335" data-batch-id="126">
+    <div class="modal-dialog">
+        <div class="modal-content">
+        <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <h4 class="modal-title">Learners who are done with "2. Append to a file"</h4>
+        </div>
+        <div class="modal-body">
+            <div class="list-group">
+            </div>
+            <div class="spinner">
+                <div class="bounce1"></div>
+                <div class="bounce2"></div>
+                <div class="bounce3"></div>
+            </div>
+            <div class="error"></div>
+        </div>
+        </div>
+    </div>
+</div>
+
+
+      <button class="btn btn-default btn-sm check-your-task-1335-modal-button" data-task-id="1335" data-toggle="modal" data-target="#task-test-correction-1335-correction-modal" id="task-num-2-check-code-btn" data-gtm-custom-event-name="task_checker_modal" data-gtm-custom-event-options='{&quot;taskId&quot;:1335}'>
+          Check your code
+      </button>
+      <div class="modal fade task_correction_modal student_modal" id="task-test-correction-1335-correction-modal">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title">Correction of "2. Append to a file"</h4>
+            </div>
+            <div class="modal-body">
+                <div class="actions">
+                    <center>
+                        <div class="alert alert-info hidden"></div>
+
+                        <button name="button" type="submit" class="btn btn-primary correction_request_test_send" data-task-id="1335">Start a new test</button>
+                        <button class="btn btn-default close-modal hidden" data-dismiss="modal" type="button">Close</button>
+
+                        <div class="spinner" style="display: none;">
+                            <div class="bounce1"></div>
+                            <div class="bounce2"></div>
+                            <div class="bounce3"></div>
+                        </div>
+                        <div class="error"></div>
+                        <div class="info"></div>
+                    </center>
+                </div>
+                <div class="result"></div>
+
+                <div class="help">
+    <button data-task-id="1335">
+        <i aria-hidden="true" class="fa-solid fa-circle-info "></i>
+    </button>
+    <div class="help-container" data-task-id="1335">
+        <div class="check-line">
+            <div class="check-inline requirement success">
+                <i aria-hidden="true" class="fa-solid fa-circle-check "></i>
+                Requirement success
+            </div>
+            <div class="check-inline requirement fail">
+                <i aria-hidden="true" class="fa-solid fa-circle-xmark "></i>
+                Requirement fail
+            </div>
+        </div>
+        <div class="check-line">
+            <div class="check-inline code success">
+                <i aria-hidden="true" class="fa-solid fa-circle-check "></i>
+                Code success
+            </div>
+            <div class="check-inline code fail">
+                <i aria-hidden="true" class="fa-solid fa-circle-xmark "></i>
+                Code fail
+            </div>
+        </div>
+        <div class="check-line">
+            <div class="check-inline efficiency success">
+                <i aria-hidden="true" class="fa-solid fa-circle-check "></i>
+                Efficiency success
+            </div>
+            <div class="check-inline efficiency fail">
+                <i aria-hidden="true" class="fa-solid fa-circle-xmark "></i>
+                Efficiency fail
+            </div>
+        </div>
+        <div class="check-line">
+            <div class="check-inline answer success">
+                <i aria-hidden="true" class="fa-solid fa-circle-check "></i>
+                Text answer success
+            </div>
+            <div class="check-inline answer fail">
+                <i aria-hidden="true" class="fa-solid fa-circle-xmark "></i>
+                Text answer fail
+            </div>
+        </div>
+        <div class="check-line">
+            <div class="check-inline requirement fail offline">
+                <i aria-hidden="true" class="fa-solid fa-circle-xmark "></i>
+                Skipped - Previous check failed
+            </div>
+        </div>
+    </div>
+</div>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+
+      <button class="btn btn-primary btn-sm task_ask_new_correction " data-task-id="1335" data-correction-id="21444745">
+        Ask for a new correction
+        <span class="in_progress_info">: in progress...</span>
+        <span class="error_occurred_info">: an error occurred</span>
+      </button>
+
+    <button class="btn btn-default btn-sm" data-toggle="modal" data-target="#container-specs-modal" data-gtm-custom-event-name="task_sandbox_modal" data-gtm-custom-event-options="{&quot;taskId&quot;:1335}"><i aria-hidden="true" class="fa-solid fa-terminal "></i><span>Get a sandbox</span></button>
+
+      <button class="btn btn-default btn-sm" data-task-id="1335" data-toggle="modal" data-target="#task-qa-review-1335-modal" data-gtm-custom-event-name="task_qa_review_modal" data-gtm-custom-event-options='{&quot;taskId&quot;:1335}'>
+        QA Review
+      </button>
+      <div class="modal fade task_get_qa_review" id="task-qa-review-1335-modal" data-correction-id="21444745" data-task-id="1335">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title">2. Append to a file</h4>
+            </div>
+            <div class="modal-body">
+                <div class="spinner gap">
+                    <div class="bounce1"></div>
+                    <div class="bounce2"></div>
+                    <div class="bounce3"></div>
+                </div>
+                <div class="review-container">
+                    <div class="review-corrector"></div>
+                    <div class="review-github well" style="display:none">
+                        <h5>Commit used:</h5>
+                        <ul>
+                            <li style="display:none"><strong>User:</strong> <code class="review-github-id"></code> <span class="review-github-name">---</span></li>
+                            <li style="display:none"><strong>URL:</strong> <a class="review-github-url" target="_blank">Click here</a></li>
+                            <li style="display:none"><strong>ID:</strong> <code class="review-github-commit_id">---</code></li>
+                            <li style="display:none"><strong>Author:</strong> <span class="review-github-committer_username">---</span></li>
+                            <li style="display:none"><strong>Subject:</strong> <em class="review-github-subject">---</em></li>
+                            <li style="display:none"><strong>Date:</strong> <span class="review-github-datetime">---</span></li>
+                        </ul>
+                    </div>
+                    <div class="review-percentage_down"></div>
+                    <ul class="review-checks list-group sm-gap"></ul>
+                    <div class="review-comment"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+</div>
+
+
+        <div class="fs-4">
+        </div>
+      </div>
+
+
+  </div>
+</div>
+
+    </div>
+    <div data-role="task1336" data-position="6" id="task-num-3">
+      <div class="panel panel-default task-card " id="task-1336">
+  <span id="user_id" data-id="482137"></span>
+
+  <div class="panel-heading panel-heading-actions">
+    <h3 class="panel-title">
+      3. To JSON string
+    </h3>
+
+    <div>
+        <span class="label label-info">
+          mandatory
+        </span>
+    </div>
+  </div>
+
+  <div class="panel-body">
+    <span id="user_id" data-id="482137"></span>
+
+    <!-- Progress vs Score -->
+      <div class="task_progress_score_bar" data-task-id="1336" data-correction-id="21444745">
+        <div class="task_progress_bar" style="width: 0.0%">
+          <div class="task_score_bar" style="width: NaN%">
+          </div>
+        </div>
+        <div class="task_progress_score_text">
+          Score: <span class="task_score_value">0.0%</span> (<span class="task_progress_value">Checks completed: 0.0%</span>)
+        </div>
+      </div>
+
+    <!-- Task Body -->
+    <p>Write a function that returns the JSON representation of an object (string):</p>
+
+<ul>
+<li>Prototype: <code>def to_json_string(my_obj):</code></li>
+<li>You don&rsquo;t need to manage exceptions if the object can&rsquo;t be serialized.</li>
+</ul>
+
+<pre><code>guillaume@ubuntu:~/0x0B$ cat 3-main.py
+#!/usr/bin/python3
+to_json_string = __import__(&#39;3-to_json_string&#39;).to_json_string
+
+my_list = [1, 2, 3]
+s_my_list = to_json_string(my_list)
+print(s_my_list)
+print(type(s_my_list))
+
+my_dict = { 
+    &#39;id&#39;: 12,
+    &#39;name&#39;: &quot;John&quot;,
+    &#39;places&#39;: [ &quot;San Francisco&quot;, &quot;Tokyo&quot; ],
+    &#39;is_active&#39;: True,
+    &#39;info&#39;: {
+        &#39;age&#39;: 36,
+        &#39;average&#39;: 3.14
+    }
+}
+s_my_dict = to_json_string(my_dict)
+print(s_my_dict)
+print(type(s_my_dict))
+
+try:
+    my_set = { 132, 3 }
+    s_my_set = to_json_string(my_set)
+    print(s_my_set)
+    print(type(s_my_set))
+except Exception as e:
+    print(&quot;[{}] {}&quot;.format(e.__class__.__name__, e))
+
+guillaume@ubuntu:~/0x0B$ ./3-main.py
+[1, 2, 3]
+&lt;class &#39;str&#39;&gt;
+{&quot;id&quot;: 12, &quot;is_active&quot;: true, &quot;name&quot;: &quot;John&quot;, &quot;info&quot;: {&quot;average&quot;: 3.14, &quot;age&quot;: 36}, &quot;places&quot;: [&quot;San Francisco&quot;, &quot;Tokyo&quot;]}
+&lt;class &#39;str&#39;&gt;
+[TypeError] {3, 132} is not JSON serializable
+guillaume@ubuntu:~/0x0B$ 
+</code></pre>
+
+<p><strong>No test cases needed</strong></p>
+
+  </div>
+
+  <div class="list-group">
+    <!-- Task URLs -->
+
+    <!-- Github information -->
+      <div class="list-group-item">
+        <p><strong>Repo:</strong></p>
+        <ul>
+          <li>GitHub repository: <code>alx-higher_level_programming</code></li>
+            <li>Directory: <code>0x0B-python-input_output</code></li>
+            <li>File: <code>3-to_json_string.py</code></li>
+        </ul>
+      </div>
+
+    <!-- Self-paced manual review -->
+  </div>
+
+  <!-- Panel footer - Controls -->
+  <div class="panel-footer">
+      <div class="align-items-center d-flex justify-content-between">
+        
+<div>
+    <button class="student_task_done btn btn-default btn-sm no" data-task-id="1336">
+      <span class="no"><i aria-hidden="true" class="fa-regular fa-square "></i></span>
+      <span class="yes"><i aria-hidden="true" class="fa-regular fa-square-check "></i></span>
+      <span class="pending"><i aria-hidden="true" class="fa-solid fa-spinner  fa-spin-pulse"></i></span>
+      Done<span class="no pending">?</span><span class="yes">!</span>
+    </button>
+
+  <button class="student-task-done-by btn btn-default btn-sm" data-task-id="1336" data-batch-id="126" data-toggle="modal" data-target="#task-1336-users-done-modal">
+    Help
+  </button>
+  <div class="modal fade users-done-modal" id="task-1336-users-done-modal" data-task-id="1336" data-batch-id="126">
+    <div class="modal-dialog">
+        <div class="modal-content">
+        <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <h4 class="modal-title">Learners who are done with "3. To JSON string"</h4>
+        </div>
+        <div class="modal-body">
+            <div class="list-group">
+            </div>
+            <div class="spinner">
+                <div class="bounce1"></div>
+                <div class="bounce2"></div>
+                <div class="bounce3"></div>
+            </div>
+            <div class="error"></div>
+        </div>
+        </div>
+    </div>
+</div>
+
+
+      <button class="btn btn-default btn-sm check-your-task-1336-modal-button" data-task-id="1336" data-toggle="modal" data-target="#task-test-correction-1336-correction-modal" id="task-num-3-check-code-btn" data-gtm-custom-event-name="task_checker_modal" data-gtm-custom-event-options='{&quot;taskId&quot;:1336}'>
+          Check your code
+      </button>
+      <div class="modal fade task_correction_modal student_modal" id="task-test-correction-1336-correction-modal">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title">Correction of "3. To JSON string"</h4>
+            </div>
+            <div class="modal-body">
+                <div class="actions">
+                    <center>
+                        <div class="alert alert-info hidden"></div>
+
+                        <button name="button" type="submit" class="btn btn-primary correction_request_test_send" data-task-id="1336">Start a new test</button>
+                        <button class="btn btn-default close-modal hidden" data-dismiss="modal" type="button">Close</button>
+
+                        <div class="spinner" style="display: none;">
+                            <div class="bounce1"></div>
+                            <div class="bounce2"></div>
+                            <div class="bounce3"></div>
+                        </div>
+                        <div class="error"></div>
+                        <div class="info"></div>
+                    </center>
+                </div>
+                <div class="result"></div>
+
+                <div class="help">
+    <button data-task-id="1336">
+        <i aria-hidden="true" class="fa-solid fa-circle-info "></i>
+    </button>
+    <div class="help-container" data-task-id="1336">
+        <div class="check-line">
+            <div class="check-inline requirement success">
+                <i aria-hidden="true" class="fa-solid fa-circle-check "></i>
+                Requirement success
+            </div>
+            <div class="check-inline requirement fail">
+                <i aria-hidden="true" class="fa-solid fa-circle-xmark "></i>
+                Requirement fail
+            </div>
+        </div>
+        <div class="check-line">
+            <div class="check-inline code success">
+                <i aria-hidden="true" class="fa-solid fa-circle-check "></i>
+                Code success
+            </div>
+            <div class="check-inline code fail">
+                <i aria-hidden="true" class="fa-solid fa-circle-xmark "></i>
+                Code fail
+            </div>
+        </div>
+        <div class="check-line">
+            <div class="check-inline efficiency success">
+                <i aria-hidden="true" class="fa-solid fa-circle-check "></i>
+                Efficiency success
+            </div>
+            <div class="check-inline efficiency fail">
+                <i aria-hidden="true" class="fa-solid fa-circle-xmark "></i>
+                Efficiency fail
+            </div>
+        </div>
+        <div class="check-line">
+            <div class="check-inline answer success">
+                <i aria-hidden="true" class="fa-solid fa-circle-check "></i>
+                Text answer success
+            </div>
+            <div class="check-inline answer fail">
+                <i aria-hidden="true" class="fa-solid fa-circle-xmark "></i>
+                Text answer fail
+            </div>
+        </div>
+        <div class="check-line">
+            <div class="check-inline requirement fail offline">
+                <i aria-hidden="true" class="fa-solid fa-circle-xmark "></i>
+                Skipped - Previous check failed
+            </div>
+        </div>
+    </div>
+</div>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+
+      <button class="btn btn-primary btn-sm task_ask_new_correction " data-task-id="1336" data-correction-id="21444745">
+        Ask for a new correction
+        <span class="in_progress_info">: in progress...</span>
+        <span class="error_occurred_info">: an error occurred</span>
+      </button>
+
+    <button class="btn btn-default btn-sm" data-toggle="modal" data-target="#container-specs-modal" data-gtm-custom-event-name="task_sandbox_modal" data-gtm-custom-event-options="{&quot;taskId&quot;:1336}"><i aria-hidden="true" class="fa-solid fa-terminal "></i><span>Get a sandbox</span></button>
+
+      <button class="btn btn-default btn-sm" data-task-id="1336" data-toggle="modal" data-target="#task-qa-review-1336-modal" data-gtm-custom-event-name="task_qa_review_modal" data-gtm-custom-event-options='{&quot;taskId&quot;:1336}'>
+        QA Review
+      </button>
+      <div class="modal fade task_get_qa_review" id="task-qa-review-1336-modal" data-correction-id="21444745" data-task-id="1336">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title">3. To JSON string</h4>
+            </div>
+            <div class="modal-body">
+                <div class="spinner gap">
+                    <div class="bounce1"></div>
+                    <div class="bounce2"></div>
+                    <div class="bounce3"></div>
+                </div>
+                <div class="review-container">
+                    <div class="review-corrector"></div>
+                    <div class="review-github well" style="display:none">
+                        <h5>Commit used:</h5>
+                        <ul>
+                            <li style="display:none"><strong>User:</strong> <code class="review-github-id"></code> <span class="review-github-name">---</span></li>
+                            <li style="display:none"><strong>URL:</strong> <a class="review-github-url" target="_blank">Click here</a></li>
+                            <li style="display:none"><strong>ID:</strong> <code class="review-github-commit_id">---</code></li>
+                            <li style="display:none"><strong>Author:</strong> <span class="review-github-committer_username">---</span></li>
+                            <li style="display:none"><strong>Subject:</strong> <em class="review-github-subject">---</em></li>
+                            <li style="display:none"><strong>Date:</strong> <span class="review-github-datetime">---</span></li>
+                        </ul>
+                    </div>
+                    <div class="review-percentage_down"></div>
+                    <ul class="review-checks list-group sm-gap"></ul>
+                    <div class="review-comment"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+</div>
+
+
+        <div class="fs-4">
+        </div>
+      </div>
+
+
+  </div>
+</div>
+
+    </div>
+    <div data-role="task1337" data-position="7" id="task-num-4">
+      <div class="panel panel-default task-card " id="task-1337">
+  <span id="user_id" data-id="482137"></span>
+
+  <div class="panel-heading panel-heading-actions">
+    <h3 class="panel-title">
+      4. From JSON string to Object
+    </h3>
+
+    <div>
+        <span class="label label-info">
+          mandatory
+        </span>
+    </div>
+  </div>
+
+  <div class="panel-body">
+    <span id="user_id" data-id="482137"></span>
+
+    <!-- Progress vs Score -->
+      <div class="task_progress_score_bar" data-task-id="1337" data-correction-id="21444745">
+        <div class="task_progress_bar" style="width: 0.0%">
+          <div class="task_score_bar" style="width: NaN%">
+          </div>
+        </div>
+        <div class="task_progress_score_text">
+          Score: <span class="task_score_value">0.0%</span> (<span class="task_progress_value">Checks completed: 0.0%</span>)
+        </div>
+      </div>
+
+    <!-- Task Body -->
+    <p>Write a function that returns an object (Python data structure) represented by a JSON string:</p>
+
+<ul>
+<li>Prototype: <code>def from_json_string(my_str):</code></li>
+<li>You don&rsquo;t need to manage exceptions if the JSON string doesn&rsquo;t represent an object.</li>
+</ul>
+
+<pre><code>guillaume@ubuntu:~/0x0B$ cat 4-main.py
+#!/usr/bin/python3
+from_json_string = __import__(&#39;4-from_json_string&#39;).from_json_string
+
+s_my_list = &quot;[1, 2, 3]&quot;
+my_list = from_json_string(s_my_list)
+print(my_list)
+print(type(my_list))
+
+s_my_dict = &quot;&quot;&quot;
+{&quot;is_active&quot;: true, &quot;info&quot;: {&quot;age&quot;: 36, &quot;average&quot;: 3.14}, 
+&quot;id&quot;: 12, &quot;name&quot;: &quot;John&quot;, &quot;places&quot;: [&quot;San Francisco&quot;, &quot;Tokyo&quot;]}
+&quot;&quot;&quot;
+my_dict = from_json_string(s_my_dict)
+print(my_dict)
+print(type(my_dict))
+
+try:
+    s_my_dict = &quot;&quot;&quot;
+    {&quot;is_active&quot;: true, 12 }
+    &quot;&quot;&quot;
+    my_dict = from_json_string(s_my_dict)
+    print(my_dict)
+    print(type(my_dict))
+except Exception as e:
+    print(&quot;[{}] {}&quot;.format(e.__class__.__name__, e))
+
+guillaume@ubuntu:~/0x0B$ ./4-main.py
+[1, 2, 3]
+&lt;class &#39;list&#39;&gt;
+{&#39;id&#39;: 12, &#39;is_active&#39;: True, &#39;name&#39;: &#39;John&#39;, &#39;info&#39;: {&#39;age&#39;: 36, &#39;average&#39;: 3.14}, &#39;places&#39;: [&#39;San Francisco&#39;, &#39;Tokyo&#39;]}
+&lt;class &#39;dict&#39;&gt;
+[ValueError] Expecting property name enclosed in double quotes: line 2 column 25 (char 25)
+guillaume@ubuntu:~/0x0B$ 
+</code></pre>
+
+<p><strong>No test cases needed</strong></p>
+
+  </div>
+
+  <div class="list-group">
+    <!-- Task URLs -->
+
+    <!-- Github information -->
+      <div class="list-group-item">
+        <p><strong>Repo:</strong></p>
+        <ul>
+          <li>GitHub repository: <code>alx-higher_level_programming</code></li>
+            <li>Directory: <code>0x0B-python-input_output</code></li>
+            <li>File: <code>4-from_json_string.py</code></li>
+        </ul>
+      </div>
+
+    <!-- Self-paced manual review -->
+  </div>
+
+  <!-- Panel footer - Controls -->
+  <div class="panel-footer">
+      <div class="align-items-center d-flex justify-content-between">
+        
+<div>
+    <button class="student_task_done btn btn-default btn-sm no" data-task-id="1337">
+      <span class="no"><i aria-hidden="true" class="fa-regular fa-square "></i></span>
+      <span class="yes"><i aria-hidden="true" class="fa-regular fa-square-check "></i></span>
+      <span class="pending"><i aria-hidden="true" class="fa-solid fa-spinner  fa-spin-pulse"></i></span>
+      Done<span class="no pending">?</span><span class="yes">!</span>
+    </button>
+
+  <button class="student-task-done-by btn btn-default btn-sm" data-task-id="1337" data-batch-id="126" data-toggle="modal" data-target="#task-1337-users-done-modal">
+    Help
+  </button>
+  <div class="modal fade users-done-modal" id="task-1337-users-done-modal" data-task-id="1337" data-batch-id="126">
+    <div class="modal-dialog">
+        <div class="modal-content">
+        <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <h4 class="modal-title">Learners who are done with "4. From JSON string to Object"</h4>
+        </div>
+        <div class="modal-body">
+            <div class="list-group">
+            </div>
+            <div class="spinner">
+                <div class="bounce1"></div>
+                <div class="bounce2"></div>
+                <div class="bounce3"></div>
+            </div>
+            <div class="error"></div>
+        </div>
+        </div>
+    </div>
+</div>
+
+
+      <button class="btn btn-default btn-sm check-your-task-1337-modal-button" data-task-id="1337" data-toggle="modal" data-target="#task-test-correction-1337-correction-modal" id="task-num-4-check-code-btn" data-gtm-custom-event-name="task_checker_modal" data-gtm-custom-event-options='{&quot;taskId&quot;:1337}'>
+          Check your code
+      </button>
+      <div class="modal fade task_correction_modal student_modal" id="task-test-correction-1337-correction-modal">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title">Correction of "4. From JSON string to Object"</h4>
+            </div>
+            <div class="modal-body">
+                <div class="actions">
+                    <center>
+                        <div class="alert alert-info hidden"></div>
+
+                        <button name="button" type="submit" class="btn btn-primary correction_request_test_send" data-task-id="1337">Start a new test</button>
+                        <button class="btn btn-default close-modal hidden" data-dismiss="modal" type="button">Close</button>
+
+                        <div class="spinner" style="display: none;">
+                            <div class="bounce1"></div>
+                            <div class="bounce2"></div>
+                            <div class="bounce3"></div>
+                        </div>
+                        <div class="error"></div>
+                        <div class="info"></div>
+                    </center>
+                </div>
+                <div class="result"></div>
+
+                <div class="help">
+    <button data-task-id="1337">
+        <i aria-hidden="true" class="fa-solid fa-circle-info "></i>
+    </button>
+    <div class="help-container" data-task-id="1337">
+        <div class="check-line">
+            <div class="check-inline requirement success">
+                <i aria-hidden="true" class="fa-solid fa-circle-check "></i>
+                Requirement success
+            </div>
+            <div class="check-inline requirement fail">
+                <i aria-hidden="true" class="fa-solid fa-circle-xmark "></i>
+                Requirement fail
+            </div>
+        </div>
+        <div class="check-line">
+            <div class="check-inline code success">
+                <i aria-hidden="true" class="fa-solid fa-circle-check "></i>
+                Code success
+            </div>
+            <div class="check-inline code fail">
+                <i aria-hidden="true" class="fa-solid fa-circle-xmark "></i>
+                Code fail
+            </div>
+        </div>
+        <div class="check-line">
+            <div class="check-inline efficiency success">
+                <i aria-hidden="true" class="fa-solid fa-circle-check "></i>
+                Efficiency success
+            </div>
+            <div class="check-inline efficiency fail">
+                <i aria-hidden="true" class="fa-solid fa-circle-xmark "></i>
+                Efficiency fail
+            </div>
+        </div>
+        <div class="check-line">
+            <div class="check-inline answer success">
+                <i aria-hidden="true" class="fa-solid fa-circle-check "></i>
+                Text answer success
+            </div>
+            <div class="check-inline answer fail">
+                <i aria-hidden="true" class="fa-solid fa-circle-xmark "></i>
+                Text answer fail
+            </div>
+        </div>
+        <div class="check-line">
+            <div class="check-inline requirement fail offline">
+                <i aria-hidden="true" class="fa-solid fa-circle-xmark "></i>
+                Skipped - Previous check failed
+            </div>
+        </div>
+    </div>
+</div>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+
+      <button class="btn btn-primary btn-sm task_ask_new_correction " data-task-id="1337" data-correction-id="21444745">
+        Ask for a new correction
+        <span class="in_progress_info">: in progress...</span>
+        <span class="error_occurred_info">: an error occurred</span>
+      </button>
+
+    <button class="btn btn-default btn-sm" data-toggle="modal" data-target="#container-specs-modal" data-gtm-custom-event-name="task_sandbox_modal" data-gtm-custom-event-options="{&quot;taskId&quot;:1337}"><i aria-hidden="true" class="fa-solid fa-terminal "></i><span>Get a sandbox</span></button>
+
+      <button class="btn btn-default btn-sm" data-task-id="1337" data-toggle="modal" data-target="#task-qa-review-1337-modal" data-gtm-custom-event-name="task_qa_review_modal" data-gtm-custom-event-options='{&quot;taskId&quot;:1337}'>
+        QA Review
+      </button>
+      <div class="modal fade task_get_qa_review" id="task-qa-review-1337-modal" data-correction-id="21444745" data-task-id="1337">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title">4. From JSON string to Object</h4>
+            </div>
+            <div class="modal-body">
+                <div class="spinner gap">
+                    <div class="bounce1"></div>
+                    <div class="bounce2"></div>
+                    <div class="bounce3"></div>
+                </div>
+                <div class="review-container">
+                    <div class="review-corrector"></div>
+                    <div class="review-github well" style="display:none">
+                        <h5>Commit used:</h5>
+                        <ul>
+                            <li style="display:none"><strong>User:</strong> <code class="review-github-id"></code> <span class="review-github-name">---</span></li>
+                            <li style="display:none"><strong>URL:</strong> <a class="review-github-url" target="_blank">Click here</a></li>
+                            <li style="display:none"><strong>ID:</strong> <code class="review-github-commit_id">---</code></li>
+                            <li style="display:none"><strong>Author:</strong> <span class="review-github-committer_username">---</span></li>
+                            <li style="display:none"><strong>Subject:</strong> <em class="review-github-subject">---</em></li>
+                            <li style="display:none"><strong>Date:</strong> <span class="review-github-datetime">---</span></li>
+                        </ul>
+                    </div>
+                    <div class="review-percentage_down"></div>
+                    <ul class="review-checks list-group sm-gap"></ul>
+                    <div class="review-comment"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+</div>
+
+
+        <div class="fs-4">
+        </div>
+      </div>
+
+
+  </div>
+</div>
+
+    </div>
+    <div data-role="task1338" data-position="8" id="task-num-5">
+      <div class="panel panel-default task-card " id="task-1338">
+  <span id="user_id" data-id="482137"></span>
+
+  <div class="panel-heading panel-heading-actions">
+    <h3 class="panel-title">
+      5. Save Object to a file
+    </h3>
+
+    <div>
+        <span class="label label-info">
+          mandatory
+        </span>
+    </div>
+  </div>
+
+  <div class="panel-body">
+    <span id="user_id" data-id="482137"></span>
+
+    <!-- Progress vs Score -->
+      <div class="task_progress_score_bar" data-task-id="1338" data-correction-id="21444745">
+        <div class="task_progress_bar" style="width: 0.0%">
+          <div class="task_score_bar" style="width: NaN%">
+          </div>
+        </div>
+        <div class="task_progress_score_text">
+          Score: <span class="task_score_value">0.0%</span> (<span class="task_progress_value">Checks completed: 0.0%</span>)
+        </div>
+      </div>
+
+    <!-- Task Body -->
+    <p>Write a function that writes an Object to a text file, using a JSON representation:</p>
+
+<ul>
+<li>Prototype: <code>def save_to_json_file(my_obj, filename):</code></li>
+<li>You must use the <code>with</code> statement</li>
+<li>You don&rsquo;t need to manage exceptions if the object can&rsquo;t be serialized.</li>
+<li>You don&rsquo;t need to manage file permission exceptions.</li>
+</ul>
+
+<pre><code>guillaume@ubuntu:~/0x0B$ cat 5-main.py
+#!/usr/bin/python3
+save_to_json_file = __import__(&#39;5-save_to_json_file&#39;).save_to_json_file
+
+filename = &quot;my_list.json&quot;
+my_list = [1, 2, 3]
+save_to_json_file(my_list, filename)
+
+filename = &quot;my_dict.json&quot;
+my_dict = { 
+    &#39;id&#39;: 12,
+    &#39;name&#39;: &quot;John&quot;,
+    &#39;places&#39;: [ &quot;San Francisco&quot;, &quot;Tokyo&quot; ],
+    &#39;is_active&#39;: True,
+    &#39;info&#39;: {
+        &#39;age&#39;: 36,
+        &#39;average&#39;: 3.14
+    }
+}
+save_to_json_file(my_dict, filename)
+
+try:
+    filename = &quot;my_set.json&quot;
+    my_set = { 132, 3 }
+    save_to_json_file(my_set, filename)
+except Exception as e:
+    print(&quot;[{}] {}&quot;.format(e.__class__.__name__, e))
+
+guillaume@ubuntu:~/0x0B$ ./5-main.py
+[TypeError] {3, 132} is not JSON serializable
+guillaume@ubuntu:~/0x0B$ cat my_list.json ; echo &quot;&quot;
+[1, 2, 3]
+guillaume@ubuntu:~/0x0B$ cat my_dict.json ; echo &quot;&quot;
+{&quot;name&quot;: &quot;John&quot;, &quot;places&quot;: [&quot;San Francisco&quot;, &quot;Tokyo&quot;], &quot;id&quot;: 12, &quot;info&quot;: {&quot;average&quot;: 3.14, &quot;age&quot;: 36}, &quot;is_active&quot;: true}
+guillaume@ubuntu:~/0x0B$ cat my_set.json ; echo &quot;&quot;
+
+guillaume@ubuntu:~/0x0B$ 
+</code></pre>
+
+<p><strong>No test cases needed</strong></p>
+
+  </div>
+
+  <div class="list-group">
+    <!-- Task URLs -->
+
+    <!-- Github information -->
+      <div class="list-group-item">
+        <p><strong>Repo:</strong></p>
+        <ul>
+          <li>GitHub repository: <code>alx-higher_level_programming</code></li>
+            <li>Directory: <code>0x0B-python-input_output</code></li>
+            <li>File: <code>5-save_to_json_file.py</code></li>
+        </ul>
+      </div>
+
+    <!-- Self-paced manual review -->
+  </div>
+
+  <!-- Panel footer - Controls -->
+  <div class="panel-footer">
+      <div class="align-items-center d-flex justify-content-between">
+        
+<div>
+    <button class="student_task_done btn btn-default btn-sm no" data-task-id="1338">
+      <span class="no"><i aria-hidden="true" class="fa-regular fa-square "></i></span>
+      <span class="yes"><i aria-hidden="true" class="fa-regular fa-square-check "></i></span>
+      <span class="pending"><i aria-hidden="true" class="fa-solid fa-spinner  fa-spin-pulse"></i></span>
+      Done<span class="no pending">?</span><span class="yes">!</span>
+    </button>
+
+  <button class="student-task-done-by btn btn-default btn-sm" data-task-id="1338" data-batch-id="126" data-toggle="modal" data-target="#task-1338-users-done-modal">
+    Help
+  </button>
+  <div class="modal fade users-done-modal" id="task-1338-users-done-modal" data-task-id="1338" data-batch-id="126">
+    <div class="modal-dialog">
+        <div class="modal-content">
+        <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <h4 class="modal-title">Learners who are done with "5. Save Object to a file"</h4>
+        </div>
+        <div class="modal-body">
+            <div class="list-group">
+            </div>
+            <div class="spinner">
+                <div class="bounce1"></div>
+                <div class="bounce2"></div>
+                <div class="bounce3"></div>
+            </div>
+            <div class="error"></div>
+        </div>
+        </div>
+    </div>
+</div>
+
+
+      <button class="btn btn-default btn-sm check-your-task-1338-modal-button" data-task-id="1338" data-toggle="modal" data-target="#task-test-correction-1338-correction-modal" id="task-num-5-check-code-btn" data-gtm-custom-event-name="task_checker_modal" data-gtm-custom-event-options='{&quot;taskId&quot;:1338}'>
+          Check your code
+      </button>
+      <div class="modal fade task_correction_modal student_modal" id="task-test-correction-1338-correction-modal">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title">Correction of "5. Save Object to a file"</h4>
+            </div>
+            <div class="modal-body">
+                <div class="actions">
+                    <center>
+                        <div class="alert alert-info hidden"></div>
+
+                        <button name="button" type="submit" class="btn btn-primary correction_request_test_send" data-task-id="1338">Start a new test</button>
+                        <button class="btn btn-default close-modal hidden" data-dismiss="modal" type="button">Close</button>
+
+                        <div class="spinner" style="display: none;">
+                            <div class="bounce1"></div>
+                            <div class="bounce2"></div>
+                            <div class="bounce3"></div>
+                        </div>
+                        <div class="error"></div>
+                        <div class="info"></div>
+                    </center>
+                </div>
+                <div class="result"></div>
+
+                <div class="help">
+    <button data-task-id="1338">
+        <i aria-hidden="true" class="fa-solid fa-circle-info "></i>
+    </button>
+    <div class="help-container" data-task-id="1338">
+        <div class="check-line">
+            <div class="check-inline requirement success">
+                <i aria-hidden="true" class="fa-solid fa-circle-check "></i>
+                Requirement success
+            </div>
+            <div class="check-inline requirement fail">
+                <i aria-hidden="true" class="fa-solid fa-circle-xmark "></i>
+                Requirement fail
+            </div>
+        </div>
+        <div class="check-line">
+            <div class="check-inline code success">
+                <i aria-hidden="true" class="fa-solid fa-circle-check "></i>
+                Code success
+            </div>
+            <div class="check-inline code fail">
+                <i aria-hidden="true" class="fa-solid fa-circle-xmark "></i>
+                Code fail
+            </div>
+        </div>
+        <div class="check-line">
+            <div class="check-inline efficiency success">
+                <i aria-hidden="true" class="fa-solid fa-circle-check "></i>
+                Efficiency success
+            </div>
+            <div class="check-inline efficiency fail">
+                <i aria-hidden="true" class="fa-solid fa-circle-xmark "></i>
+                Efficiency fail
+            </div>
+        </div>
+        <div class="check-line">
+            <div class="check-inline answer success">
+                <i aria-hidden="true" class="fa-solid fa-circle-check "></i>
+                Text answer success
+            </div>
+            <div class="check-inline answer fail">
+                <i aria-hidden="true" class="fa-solid fa-circle-xmark "></i>
+                Text answer fail
+            </div>
+        </div>
+        <div class="check-line">
+            <div class="check-inline requirement fail offline">
+                <i aria-hidden="true" class="fa-solid fa-circle-xmark "></i>
+                Skipped - Previous check failed
+            </div>
+        </div>
+    </div>
+</div>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+
+      <button class="btn btn-primary btn-sm task_ask_new_correction " data-task-id="1338" data-correction-id="21444745">
+        Ask for a new correction
+        <span class="in_progress_info">: in progress...</span>
+        <span class="error_occurred_info">: an error occurred</span>
+      </button>
+
+    <button class="btn btn-default btn-sm" data-toggle="modal" data-target="#container-specs-modal" data-gtm-custom-event-name="task_sandbox_modal" data-gtm-custom-event-options="{&quot;taskId&quot;:1338}"><i aria-hidden="true" class="fa-solid fa-terminal "></i><span>Get a sandbox</span></button>
+
+      <button class="btn btn-default btn-sm" data-task-id="1338" data-toggle="modal" data-target="#task-qa-review-1338-modal" data-gtm-custom-event-name="task_qa_review_modal" data-gtm-custom-event-options='{&quot;taskId&quot;:1338}'>
+        QA Review
+      </button>
+      <div class="modal fade task_get_qa_review" id="task-qa-review-1338-modal" data-correction-id="21444745" data-task-id="1338">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title">5. Save Object to a file</h4>
+            </div>
+            <div class="modal-body">
+                <div class="spinner gap">
+                    <div class="bounce1"></div>
+                    <div class="bounce2"></div>
+                    <div class="bounce3"></div>
+                </div>
+                <div class="review-container">
+                    <div class="review-corrector"></div>
+                    <div class="review-github well" style="display:none">
+                        <h5>Commit used:</h5>
+                        <ul>
+                            <li style="display:none"><strong>User:</strong> <code class="review-github-id"></code> <span class="review-github-name">---</span></li>
+                            <li style="display:none"><strong>URL:</strong> <a class="review-github-url" target="_blank">Click here</a></li>
+                            <li style="display:none"><strong>ID:</strong> <code class="review-github-commit_id">---</code></li>
+                            <li style="display:none"><strong>Author:</strong> <span class="review-github-committer_username">---</span></li>
+                            <li style="display:none"><strong>Subject:</strong> <em class="review-github-subject">---</em></li>
+                            <li style="display:none"><strong>Date:</strong> <span class="review-github-datetime">---</span></li>
+                        </ul>
+                    </div>
+                    <div class="review-percentage_down"></div>
+                    <ul class="review-checks list-group sm-gap"></ul>
+                    <div class="review-comment"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+</div>
+
+
+        <div class="fs-4">
+        </div>
+      </div>
+
+
+  </div>
+</div>
+
+    </div>
+    <div data-role="task1339" data-position="9" id="task-num-6">
+      <div class="panel panel-default task-card " id="task-1339">
+  <span id="user_id" data-id="482137"></span>
+
+  <div class="panel-heading panel-heading-actions">
+    <h3 class="panel-title">
+      6. Create object from a JSON file
+    </h3>
+
+    <div>
+        <span class="label label-info">
+          mandatory
+        </span>
+    </div>
+  </div>
+
+  <div class="panel-body">
+    <span id="user_id" data-id="482137"></span>
+
+    <!-- Progress vs Score -->
+      <div class="task_progress_score_bar" data-task-id="1339" data-correction-id="21444745">
+        <div class="task_progress_bar" style="width: 0.0%">
+          <div class="task_score_bar" style="width: NaN%">
+          </div>
+        </div>
+        <div class="task_progress_score_text">
+          Score: <span class="task_score_value">0.0%</span> (<span class="task_progress_value">Checks completed: 0.0%</span>)
+        </div>
+      </div>
+
+    <!-- Task Body -->
+    <p>Write a function that creates an Object from a &ldquo;JSON file&rdquo;:</p>
+
+<ul>
+<li>Prototype: <code>def load_from_json_file(filename):</code></li>
+<li>You must use the <code>with</code> statement</li>
+<li>You don&rsquo;t need to manage exceptions if the JSON string doesn&rsquo;t represent an object.</li>
+<li>You don&rsquo;t need to manage file permissions / exceptions.</li>
+</ul>
+
+<pre><code>guillaume@ubuntu:~/0x0B$ cat my_fake.json
+{&quot;is_active&quot;: true, 12 }
+guillaume@ubuntu:~/0x0B$ cat 6-main.py
+#!/usr/bin/python3
+load_from_json_file = __import__(&#39;6-load_from_json_file&#39;).load_from_json_file
+
+filename = &quot;my_list.json&quot;
+my_list = load_from_json_file(filename)
+print(my_list)
+print(type(my_list))
+
+filename = &quot;my_dict.json&quot;
+my_dict = load_from_json_file(filename)
+print(my_dict)
+print(type(my_dict))
+
+try:
+    filename = &quot;my_set_doesnt_exist.json&quot;
+    my_set = load_from_json_file(filename)
+    print(my_set)
+    print(type(my_set))
+except Exception as e:
+    print(&quot;[{}] {}&quot;.format(e.__class__.__name__, e))
+
+try:
+    filename = &quot;my_fake.json&quot;
+    my_fake = load_from_json_file(filename)
+    print(my_fake)
+    print(type(my_fake))
+except Exception as e:
+    print(&quot;[{}] {}&quot;.format(e.__class__.__name__, e))
+
+guillaume@ubuntu:~/0x0B$ cat my_list.json ; echo &quot;&quot;
+[1, 2, 3]
+guillaume@ubuntu:~/0x0B$ cat my_dict.json ; echo &quot;&quot;
+{&quot;name&quot;: &quot;John&quot;, &quot;places&quot;: [&quot;San Francisco&quot;, &quot;Tokyo&quot;], &quot;id&quot;: 12, &quot;info&quot;: {&quot;average&quot;: 3.14, &quot;age&quot;: 36}, &quot;is_active&quot;: true}
+guillaume@ubuntu:~/0x0B$ cat my_fake.json ; echo &quot;&quot;
+{&quot;is_active&quot;: true, 12 }
+guillaume@ubuntu:~/0x0B$ ./6-main.py
+[1, 2, 3]
+&lt;class &#39;list&#39;&gt;
+{&#39;name&#39;: &#39;John&#39;, &#39;info&#39;: {&#39;age&#39;: 36, &#39;average&#39;: 3.14}, &#39;id&#39;: 12, &#39;places&#39;: [&#39;San Francisco&#39;, &#39;Tokyo&#39;], &#39;is_active&#39;: True}
+&lt;class &#39;dict&#39;&gt;
+[FileNotFoundError] [Errno 2] No such file or directory: &#39;my_set_doesnt_exist.json&#39;
+[ValueError] Expecting property name enclosed in double quotes: line 1 column 21 (char 20)
+guillaume@ubuntu:~/0x0B$ 
+</code></pre>
+
+<p><strong>No test cases needed</strong></p>
+
+  </div>
+
+  <div class="list-group">
+    <!-- Task URLs -->
+
+    <!-- Github information -->
+      <div class="list-group-item">
+        <p><strong>Repo:</strong></p>
+        <ul>
+          <li>GitHub repository: <code>alx-higher_level_programming</code></li>
+            <li>Directory: <code>0x0B-python-input_output</code></li>
+            <li>File: <code>6-load_from_json_file.py</code></li>
+        </ul>
+      </div>
+
+    <!-- Self-paced manual review -->
+  </div>
+
+  <!-- Panel footer - Controls -->
+  <div class="panel-footer">
+      <div class="align-items-center d-flex justify-content-between">
+        
+<div>
+    <button class="student_task_done btn btn-default btn-sm no" data-task-id="1339">
+      <span class="no"><i aria-hidden="true" class="fa-regular fa-square "></i></span>
+      <span class="yes"><i aria-hidden="true" class="fa-regular fa-square-check "></i></span>
+      <span class="pending"><i aria-hidden="true" class="fa-solid fa-spinner  fa-spin-pulse"></i></span>
+      Done<span class="no pending">?</span><span class="yes">!</span>
+    </button>
+
+  <button class="student-task-done-by btn btn-default btn-sm" data-task-id="1339" data-batch-id="126" data-toggle="modal" data-target="#task-1339-users-done-modal">
+    Help
+  </button>
+  <div class="modal fade users-done-modal" id="task-1339-users-done-modal" data-task-id="1339" data-batch-id="126">
+    <div class="modal-dialog">
+        <div class="modal-content">
+        <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <h4 class="modal-title">Learners who are done with "6. Create object from a JSON file"</h4>
+        </div>
+        <div class="modal-body">
+            <div class="list-group">
+            </div>
+            <div class="spinner">
+                <div class="bounce1"></div>
+                <div class="bounce2"></div>
+                <div class="bounce3"></div>
+            </div>
+            <div class="error"></div>
+        </div>
+        </div>
+    </div>
+</div>
+
+
+      <button class="btn btn-default btn-sm check-your-task-1339-modal-button" data-task-id="1339" data-toggle="modal" data-target="#task-test-correction-1339-correction-modal" id="task-num-6-check-code-btn" data-gtm-custom-event-name="task_checker_modal" data-gtm-custom-event-options='{&quot;taskId&quot;:1339}'>
+          Check your code
+      </button>
+      <div class="modal fade task_correction_modal student_modal" id="task-test-correction-1339-correction-modal">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title">Correction of "6. Create object from a JSON file"</h4>
+            </div>
+            <div class="modal-body">
+                <div class="actions">
+                    <center>
+                        <div class="alert alert-info hidden"></div>
+
+                        <button name="button" type="submit" class="btn btn-primary correction_request_test_send" data-task-id="1339">Start a new test</button>
+                        <button class="btn btn-default close-modal hidden" data-dismiss="modal" type="button">Close</button>
+
+                        <div class="spinner" style="display: none;">
+                            <div class="bounce1"></div>
+                            <div class="bounce2"></div>
+                            <div class="bounce3"></div>
+                        </div>
+                        <div class="error"></div>
+                        <div class="info"></div>
+                    </center>
+                </div>
+                <div class="result"></div>
+
+                <div class="help">
+    <button data-task-id="1339">
+        <i aria-hidden="true" class="fa-solid fa-circle-info "></i>
+    </button>
+    <div class="help-container" data-task-id="1339">
+        <div class="check-line">
+            <div class="check-inline requirement success">
+                <i aria-hidden="true" class="fa-solid fa-circle-check "></i>
+                Requirement success
+            </div>
+            <div class="check-inline requirement fail">
+                <i aria-hidden="true" class="fa-solid fa-circle-xmark "></i>
+                Requirement fail
+            </div>
+        </div>
+        <div class="check-line">
+            <div class="check-inline code success">
+                <i aria-hidden="true" class="fa-solid fa-circle-check "></i>
+                Code success
+            </div>
+            <div class="check-inline code fail">
+                <i aria-hidden="true" class="fa-solid fa-circle-xmark "></i>
+                Code fail
+            </div>
+        </div>
+        <div class="check-line">
+            <div class="check-inline efficiency success">
+                <i aria-hidden="true" class="fa-solid fa-circle-check "></i>
+                Efficiency success
+            </div>
+            <div class="check-inline efficiency fail">
+                <i aria-hidden="true" class="fa-solid fa-circle-xmark "></i>
+                Efficiency fail
+            </div>
+        </div>
+        <div class="check-line">
+            <div class="check-inline answer success">
+                <i aria-hidden="true" class="fa-solid fa-circle-check "></i>
+                Text answer success
+            </div>
+            <div class="check-inline answer fail">
+                <i aria-hidden="true" class="fa-solid fa-circle-xmark "></i>
+                Text answer fail
+            </div>
+        </div>
+        <div class="check-line">
+            <div class="check-inline requirement fail offline">
+                <i aria-hidden="true" class="fa-solid fa-circle-xmark "></i>
+                Skipped - Previous check failed
+            </div>
+        </div>
+    </div>
+</div>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+
+      <button class="btn btn-primary btn-sm task_ask_new_correction " data-task-id="1339" data-correction-id="21444745">
+        Ask for a new correction
+        <span class="in_progress_info">: in progress...</span>
+        <span class="error_occurred_info">: an error occurred</span>
+      </button>
+
+    <button class="btn btn-default btn-sm" data-toggle="modal" data-target="#container-specs-modal" data-gtm-custom-event-name="task_sandbox_modal" data-gtm-custom-event-options="{&quot;taskId&quot;:1339}"><i aria-hidden="true" class="fa-solid fa-terminal "></i><span>Get a sandbox</span></button>
+
+      <button class="btn btn-default btn-sm" data-task-id="1339" data-toggle="modal" data-target="#task-qa-review-1339-modal" data-gtm-custom-event-name="task_qa_review_modal" data-gtm-custom-event-options='{&quot;taskId&quot;:1339}'>
+        QA Review
+      </button>
+      <div class="modal fade task_get_qa_review" id="task-qa-review-1339-modal" data-correction-id="21444745" data-task-id="1339">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title">6. Create object from a JSON file</h4>
+            </div>
+            <div class="modal-body">
+                <div class="spinner gap">
+                    <div class="bounce1"></div>
+                    <div class="bounce2"></div>
+                    <div class="bounce3"></div>
+                </div>
+                <div class="review-container">
+                    <div class="review-corrector"></div>
+                    <div class="review-github well" style="display:none">
+                        <h5>Commit used:</h5>
+                        <ul>
+                            <li style="display:none"><strong>User:</strong> <code class="review-github-id"></code> <span class="review-github-name">---</span></li>
+                            <li style="display:none"><strong>URL:</strong> <a class="review-github-url" target="_blank">Click here</a></li>
+                            <li style="display:none"><strong>ID:</strong> <code class="review-github-commit_id">---</code></li>
+                            <li style="display:none"><strong>Author:</strong> <span class="review-github-committer_username">---</span></li>
+                            <li style="display:none"><strong>Subject:</strong> <em class="review-github-subject">---</em></li>
+                            <li style="display:none"><strong>Date:</strong> <span class="review-github-datetime">---</span></li>
+                        </ul>
+                    </div>
+                    <div class="review-percentage_down"></div>
+                    <ul class="review-checks list-group sm-gap"></ul>
+                    <div class="review-comment"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+</div>
+
+
+        <div class="fs-4">
+        </div>
+      </div>
+
+
+  </div>
+</div>
+
+    </div>
+    <div data-role="task1340" data-position="10" id="task-num-7">
+      <div class="panel panel-default task-card " id="task-1340">
+  <span id="user_id" data-id="482137"></span>
+
+  <div class="panel-heading panel-heading-actions">
+    <h3 class="panel-title">
+      7. Load, add, save
+    </h3>
+
+    <div>
+        <span class="label label-info">
+          mandatory
+        </span>
+    </div>
+  </div>
+
+  <div class="panel-body">
+    <span id="user_id" data-id="482137"></span>
+
+    <!-- Progress vs Score -->
+      <div class="task_progress_score_bar" data-task-id="1340" data-correction-id="21444745">
+        <div class="task_progress_bar" style="width: 0.0%">
+          <div class="task_score_bar" style="width: NaN%">
+          </div>
+        </div>
+        <div class="task_progress_score_text">
+          Score: <span class="task_score_value">0.0%</span> (<span class="task_progress_value">Checks completed: 0.0%</span>)
+        </div>
+      </div>
+
+    <!-- Task Body -->
+    <p>Write a script that adds all arguments to a Python list, and then save them to a file:</p>
+
+<ul>
+<li>You must use your function <code>save_to_json_file</code> from <code>5-save_to_json_file.py</code></li>
+<li>You must use your function <code>load_from_json_file</code> from <code>6-load_from_json_file.py</code></li>
+<li>The list must be saved as a JSON representation in a file named <code>add_item.json</code></li>
+<li>If the file doesn&rsquo;t exist, it should be created</li>
+<li>You don&rsquo;t need to manage file permissions / exceptions.</li>
+</ul>
+
+<pre><code>guillaume@ubuntu:~/0x0B$ cat add_item.json
+cat: add_item.json: No such file or directory
+guillaume@ubuntu:~/0x0B$ ./7-add_item.py
+guillaume@ubuntu:~/0x0B$ cat add_item.json ; echo &quot;&quot;
+[]
+guillaume@ubuntu:~/0x0B$ ./7-add_item.py Best School
+guillaume@ubuntu:~/0x0B$ cat add_item.json ; echo &quot;&quot;
+[&quot;Best&quot;, &quot;School&quot;]
+guillaume@ubuntu:~/0x0B$ ./7-add_item.py 89 Python C
+guillaume@ubuntu:~/0x0B$ cat add_item.json ; echo &quot;&quot;
+[&quot;Best&quot;, &quot;School&quot;, &quot;89&quot;, &quot;Python&quot;, &quot;C&quot;]
+guillaume@ubuntu:~/0x0B$ 
+</code></pre>
+
+<p><strong>No test cases needed</strong></p>
+
+  </div>
+
+  <div class="list-group">
+    <!-- Task URLs -->
+
+    <!-- Github information -->
+      <div class="list-group-item">
+        <p><strong>Repo:</strong></p>
+        <ul>
+          <li>GitHub repository: <code>alx-higher_level_programming</code></li>
+            <li>Directory: <code>0x0B-python-input_output</code></li>
+            <li>File: <code>7-add_item.py</code></li>
+        </ul>
+      </div>
+
+    <!-- Self-paced manual review -->
+  </div>
+
+  <!-- Panel footer - Controls -->
+  <div class="panel-footer">
+      <div class="align-items-center d-flex justify-content-between">
+        
+<div>
+    <button class="student_task_done btn btn-default btn-sm no" data-task-id="1340">
+      <span class="no"><i aria-hidden="true" class="fa-regular fa-square "></i></span>
+      <span class="yes"><i aria-hidden="true" class="fa-regular fa-square-check "></i></span>
+      <span class="pending"><i aria-hidden="true" class="fa-solid fa-spinner  fa-spin-pulse"></i></span>
+      Done<span class="no pending">?</span><span class="yes">!</span>
+    </button>
+
+  <button class="student-task-done-by btn btn-default btn-sm" data-task-id="1340" data-batch-id="126" data-toggle="modal" data-target="#task-1340-users-done-modal">
+    Help
+  </button>
+  <div class="modal fade users-done-modal" id="task-1340-users-done-modal" data-task-id="1340" data-batch-id="126">
+    <div class="modal-dialog">
+        <div class="modal-content">
+        <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <h4 class="modal-title">Learners who are done with "7. Load, add, save"</h4>
+        </div>
+        <div class="modal-body">
+            <div class="list-group">
+            </div>
+            <div class="spinner">
+                <div class="bounce1"></div>
+                <div class="bounce2"></div>
+                <div class="bounce3"></div>
+            </div>
+            <div class="error"></div>
+        </div>
+        </div>
+    </div>
+</div>
+
+
+      <button class="btn btn-default btn-sm check-your-task-1340-modal-button" data-task-id="1340" data-toggle="modal" data-target="#task-test-correction-1340-correction-modal" id="task-num-7-check-code-btn" data-gtm-custom-event-name="task_checker_modal" data-gtm-custom-event-options='{&quot;taskId&quot;:1340}'>
+          Check your code
+      </button>
+      <div class="modal fade task_correction_modal student_modal" id="task-test-correction-1340-correction-modal">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title">Correction of "7. Load, add, save"</h4>
+            </div>
+            <div class="modal-body">
+                <div class="actions">
+                    <center>
+                        <div class="alert alert-info hidden"></div>
+
+                        <button name="button" type="submit" class="btn btn-primary correction_request_test_send" data-task-id="1340">Start a new test</button>
+                        <button class="btn btn-default close-modal hidden" data-dismiss="modal" type="button">Close</button>
+
+                        <div class="spinner" style="display: none;">
+                            <div class="bounce1"></div>
+                            <div class="bounce2"></div>
+                            <div class="bounce3"></div>
+                        </div>
+                        <div class="error"></div>
+                        <div class="info"></div>
+                    </center>
+                </div>
+                <div class="result"></div>
+
+                <div class="help">
+    <button data-task-id="1340">
+        <i aria-hidden="true" class="fa-solid fa-circle-info "></i>
+    </button>
+    <div class="help-container" data-task-id="1340">
+        <div class="check-line">
+            <div class="check-inline requirement success">
+                <i aria-hidden="true" class="fa-solid fa-circle-check "></i>
+                Requirement success
+            </div>
+            <div class="check-inline requirement fail">
+                <i aria-hidden="true" class="fa-solid fa-circle-xmark "></i>
+                Requirement fail
+            </div>
+        </div>
+        <div class="check-line">
+            <div class="check-inline code success">
+                <i aria-hidden="true" class="fa-solid fa-circle-check "></i>
+                Code success
+            </div>
+            <div class="check-inline code fail">
+                <i aria-hidden="true" class="fa-solid fa-circle-xmark "></i>
+                Code fail
+            </div>
+        </div>
+        <div class="check-line">
+            <div class="check-inline efficiency success">
+                <i aria-hidden="true" class="fa-solid fa-circle-check "></i>
+                Efficiency success
+            </div>
+            <div class="check-inline efficiency fail">
+                <i aria-hidden="true" class="fa-solid fa-circle-xmark "></i>
+                Efficiency fail
+            </div>
+        </div>
+        <div class="check-line">
+            <div class="check-inline answer success">
+                <i aria-hidden="true" class="fa-solid fa-circle-check "></i>
+                Text answer success
+            </div>
+            <div class="check-inline answer fail">
+                <i aria-hidden="true" class="fa-solid fa-circle-xmark "></i>
+                Text answer fail
+            </div>
+        </div>
+        <div class="check-line">
+            <div class="check-inline requirement fail offline">
+                <i aria-hidden="true" class="fa-solid fa-circle-xmark "></i>
+                Skipped - Previous check failed
+            </div>
+        </div>
+    </div>
+</div>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+
+      <button class="btn btn-primary btn-sm task_ask_new_correction " data-task-id="1340" data-correction-id="21444745">
+        Ask for a new correction
+        <span class="in_progress_info">: in progress...</span>
+        <span class="error_occurred_info">: an error occurred</span>
+      </button>
+
+    <button class="btn btn-default btn-sm" data-toggle="modal" data-target="#container-specs-modal" data-gtm-custom-event-name="task_sandbox_modal" data-gtm-custom-event-options="{&quot;taskId&quot;:1340}"><i aria-hidden="true" class="fa-solid fa-terminal "></i><span>Get a sandbox</span></button>
+
+      <button class="btn btn-default btn-sm" data-task-id="1340" data-toggle="modal" data-target="#task-qa-review-1340-modal" data-gtm-custom-event-name="task_qa_review_modal" data-gtm-custom-event-options='{&quot;taskId&quot;:1340}'>
+        QA Review
+      </button>
+      <div class="modal fade task_get_qa_review" id="task-qa-review-1340-modal" data-correction-id="21444745" data-task-id="1340">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title">7. Load, add, save</h4>
+            </div>
+            <div class="modal-body">
+                <div class="spinner gap">
+                    <div class="bounce1"></div>
+                    <div class="bounce2"></div>
+                    <div class="bounce3"></div>
+                </div>
+                <div class="review-container">
+                    <div class="review-corrector"></div>
+                    <div class="review-github well" style="display:none">
+                        <h5>Commit used:</h5>
+                        <ul>
+                            <li style="display:none"><strong>User:</strong> <code class="review-github-id"></code> <span class="review-github-name">---</span></li>
+                            <li style="display:none"><strong>URL:</strong> <a class="review-github-url" target="_blank">Click here</a></li>
+                            <li style="display:none"><strong>ID:</strong> <code class="review-github-commit_id">---</code></li>
+                            <li style="display:none"><strong>Author:</strong> <span class="review-github-committer_username">---</span></li>
+                            <li style="display:none"><strong>Subject:</strong> <em class="review-github-subject">---</em></li>
+                            <li style="display:none"><strong>Date:</strong> <span class="review-github-datetime">---</span></li>
+                        </ul>
+                    </div>
+                    <div class="review-percentage_down"></div>
+                    <ul class="review-checks list-group sm-gap"></ul>
+                    <div class="review-comment"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+</div>
+
+
+        <div class="fs-4">
+        </div>
+      </div>
+
+
+  </div>
+</div>
+
+    </div>
+    <div data-role="task1867" data-position="11" id="task-num-8">
+      <div class="panel panel-default task-card " id="task-1867">
+  <span id="user_id" data-id="482137"></span>
+
+  <div class="panel-heading panel-heading-actions">
+    <h3 class="panel-title">
+      8. Class to JSON
+    </h3>
+
+    <div>
+        <span class="label label-info">
+          mandatory
+        </span>
+    </div>
+  </div>
+
+  <div class="panel-body">
+    <span id="user_id" data-id="482137"></span>
+
+    <!-- Progress vs Score -->
+      <div class="task_progress_score_bar" data-task-id="1867" data-correction-id="21444745">
+        <div class="task_progress_bar" style="width: 0.0%">
+          <div class="task_score_bar" style="width: NaN%">
+          </div>
+        </div>
+        <div class="task_progress_score_text">
+          Score: <span class="task_score_value">0.0%</span> (<span class="task_progress_value">Checks completed: 0.0%</span>)
+        </div>
+      </div>
+
+    <!-- Task Body -->
+    <p>Write a function that returns the dictionary description with simple data structure (list, dictionary, string, integer and boolean) for JSON serialization of an object:</p>
+
+<ul>
+<li>Prototype: <code>def class_to_json(obj):</code></li>
+<li><code>obj</code> is an instance of a Class</li>
+<li>All attributes of the <code>obj</code> Class are serializable: list, dictionary, string, integer and boolean</li>
+<li>You are not allowed to import any module</li>
+</ul>
+
+<pre><code>guillaume@ubuntu:~/0x0B$ cat 8-my_class.py 
+#!/usr/bin/python3
+&quot;&quot;&quot; My class module
+&quot;&quot;&quot;
+
+class MyClass:
+    &quot;&quot;&quot; My class
+    &quot;&quot;&quot;
+
+    def __init__(self, name):
+        self.name = name
+        self.number = 0
+
+    def __str__(self):
+        return &quot;[MyClass] {} - {:d}&quot;.format(self.name, self.number)
+
+guillaume@ubuntu:~/0x0B$ cat 8-main.py 
+#!/usr/bin/python3
+MyClass = __import__(&#39;8-my_class&#39;).MyClass
+class_to_json = __import__(&#39;8-class_to_json&#39;).class_to_json
+
+m = MyClass(&quot;John&quot;)
+m.number = 89
+print(type(m))
+print(m)
+
+mj = class_to_json(m)
+print(type(mj))
+print(mj)
+
+guillaume@ubuntu:~/0x0B$ ./8-main.py 
+&lt;class &#39;8-my_class.MyClass&#39;&gt;
+[MyClass] John - 89
+&lt;class &#39;dict&#39;&gt;
+{&#39;name&#39;: &#39;John&#39;, &#39;number&#39;: 89}
+guillaume@ubuntu:~/0x0B$ 
+guillaume@ubuntu:~/0x0B$ cat 8-my_class_2.py 
+#!/usr/bin/python3
+&quot;&quot;&quot; My class module
+&quot;&quot;&quot;
+
+class MyClass:
+    &quot;&quot;&quot; My class
+    &quot;&quot;&quot;
+
+    score = 0
+
+    def __init__(self, name, number = 4):
+        self.__name = name
+        self.number = number
+        self.is_team_red = (self.number % 2) == 0
+
+    def win(self):
+        self.score += 1
+
+    def lose(self):
+        self.score -= 1
+
+    def __str__(self):
+        return &quot;[MyClass] {} - {:d} =&gt; {:d}&quot;.format(self.__name, self.number, self.score)
+
+guillaume@ubuntu:~/0x0B$ cat 8-main_2.py 
+#!/usr/bin/python3
+MyClass = __import__(&#39;8-my_class_2&#39;).MyClass
+class_to_json = __import__(&#39;8-class_to_json&#39;).class_to_json
+
+m = MyClass(&quot;John&quot;)
+m.win()
+print(type(m))
+print(m)
+
+mj = class_to_json(m)
+print(type(mj))
+print(mj)
+
+guillaume@ubuntu:~/0x0B$ ./8-main_2.py 
+&lt;class &#39;8-my_class_2.MyClass&#39;&gt;
+[MyClass] John - 4 =&gt; 1
+&lt;class &#39;dict&#39;&gt;
+{&#39;number&#39;: 4, &#39;_MyClass__name&#39;: &#39;John&#39;, &#39;is_team_red&#39;: True, &#39;score&#39;: 1}
+guillaume@ubuntu:~/0x0B$
+</code></pre>
+
+<p><strong>No test cases needed</strong></p>
+
+  </div>
+
+  <div class="list-group">
+    <!-- Task URLs -->
+
+    <!-- Github information -->
+      <div class="list-group-item">
+        <p><strong>Repo:</strong></p>
+        <ul>
+          <li>GitHub repository: <code>alx-higher_level_programming</code></li>
+            <li>Directory: <code>0x0B-python-input_output</code></li>
+            <li>File: <code>8-class_to_json.py</code></li>
+        </ul>
+      </div>
+
+    <!-- Self-paced manual review -->
+  </div>
+
+  <!-- Panel footer - Controls -->
+  <div class="panel-footer">
+      <div class="align-items-center d-flex justify-content-between">
+        
+<div>
+    <button class="student_task_done btn btn-default btn-sm no" data-task-id="1867">
+      <span class="no"><i aria-hidden="true" class="fa-regular fa-square "></i></span>
+      <span class="yes"><i aria-hidden="true" class="fa-regular fa-square-check "></i></span>
+      <span class="pending"><i aria-hidden="true" class="fa-solid fa-spinner  fa-spin-pulse"></i></span>
+      Done<span class="no pending">?</span><span class="yes">!</span>
+    </button>
+
+  <button class="student-task-done-by btn btn-default btn-sm" data-task-id="1867" data-batch-id="126" data-toggle="modal" data-target="#task-1867-users-done-modal">
+    Help
+  </button>
+  <div class="modal fade users-done-modal" id="task-1867-users-done-modal" data-task-id="1867" data-batch-id="126">
+    <div class="modal-dialog">
+        <div class="modal-content">
+        <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <h4 class="modal-title">Learners who are done with "8. Class to JSON"</h4>
+        </div>
+        <div class="modal-body">
+            <div class="list-group">
+            </div>
+            <div class="spinner">
+                <div class="bounce1"></div>
+                <div class="bounce2"></div>
+                <div class="bounce3"></div>
+            </div>
+            <div class="error"></div>
+        </div>
+        </div>
+    </div>
+</div>
+
+
+      <button class="btn btn-default btn-sm check-your-task-1867-modal-button" data-task-id="1867" data-toggle="modal" data-target="#task-test-correction-1867-correction-modal" id="task-num-8-check-code-btn" data-gtm-custom-event-name="task_checker_modal" data-gtm-custom-event-options='{&quot;taskId&quot;:1867}'>
+          Check your code
+      </button>
+      <div class="modal fade task_correction_modal student_modal" id="task-test-correction-1867-correction-modal">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title">Correction of "8. Class to JSON"</h4>
+            </div>
+            <div class="modal-body">
+                <div class="actions">
+                    <center>
+                        <div class="alert alert-info hidden"></div>
+
+                        <button name="button" type="submit" class="btn btn-primary correction_request_test_send" data-task-id="1867">Start a new test</button>
+                        <button class="btn btn-default close-modal hidden" data-dismiss="modal" type="button">Close</button>
+
+                        <div class="spinner" style="display: none;">
+                            <div class="bounce1"></div>
+                            <div class="bounce2"></div>
+                            <div class="bounce3"></div>
+                        </div>
+                        <div class="error"></div>
+                        <div class="info"></div>
+                    </center>
+                </div>
+                <div class="result"></div>
+
+                <div class="help">
+    <button data-task-id="1867">
+        <i aria-hidden="true" class="fa-solid fa-circle-info "></i>
+    </button>
+    <div class="help-container" data-task-id="1867">
+        <div class="check-line">
+            <div class="check-inline requirement success">
+                <i aria-hidden="true" class="fa-solid fa-circle-check "></i>
+                Requirement success
+            </div>
+            <div class="check-inline requirement fail">
+                <i aria-hidden="true" class="fa-solid fa-circle-xmark "></i>
+                Requirement fail
+            </div>
+        </div>
+        <div class="check-line">
+            <div class="check-inline code success">
+                <i aria-hidden="true" class="fa-solid fa-circle-check "></i>
+                Code success
+            </div>
+            <div class="check-inline code fail">
+                <i aria-hidden="true" class="fa-solid fa-circle-xmark "></i>
+                Code fail
+            </div>
+        </div>
+        <div class="check-line">
+            <div class="check-inline efficiency success">
+                <i aria-hidden="true" class="fa-solid fa-circle-check "></i>
+                Efficiency success
+            </div>
+            <div class="check-inline efficiency fail">
+                <i aria-hidden="true" class="fa-solid fa-circle-xmark "></i>
+                Efficiency fail
+            </div>
+        </div>
+        <div class="check-line">
+            <div class="check-inline answer success">
+                <i aria-hidden="true" class="fa-solid fa-circle-check "></i>
+                Text answer success
+            </div>
+            <div class="check-inline answer fail">
+                <i aria-hidden="true" class="fa-solid fa-circle-xmark "></i>
+                Text answer fail
+            </div>
+        </div>
+        <div class="check-line">
+            <div class="check-inline requirement fail offline">
+                <i aria-hidden="true" class="fa-solid fa-circle-xmark "></i>
+                Skipped - Previous check failed
+            </div>
+        </div>
+    </div>
+</div>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+
+      <button class="btn btn-primary btn-sm task_ask_new_correction " data-task-id="1867" data-correction-id="21444745">
+        Ask for a new correction
+        <span class="in_progress_info">: in progress...</span>
+        <span class="error_occurred_info">: an error occurred</span>
+      </button>
+
+    <button class="btn btn-default btn-sm" data-toggle="modal" data-target="#container-specs-modal" data-gtm-custom-event-name="task_sandbox_modal" data-gtm-custom-event-options="{&quot;taskId&quot;:1867}"><i aria-hidden="true" class="fa-solid fa-terminal "></i><span>Get a sandbox</span></button>
+
+      <button class="btn btn-default btn-sm" data-task-id="1867" data-toggle="modal" data-target="#task-qa-review-1867-modal" data-gtm-custom-event-name="task_qa_review_modal" data-gtm-custom-event-options='{&quot;taskId&quot;:1867}'>
+        QA Review
+      </button>
+      <div class="modal fade task_get_qa_review" id="task-qa-review-1867-modal" data-correction-id="21444745" data-task-id="1867">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title">8. Class to JSON</h4>
+            </div>
+            <div class="modal-body">
+                <div class="spinner gap">
+                    <div class="bounce1"></div>
+                    <div class="bounce2"></div>
+                    <div class="bounce3"></div>
+                </div>
+                <div class="review-container">
+                    <div class="review-corrector"></div>
+                    <div class="review-github well" style="display:none">
+                        <h5>Commit used:</h5>
+                        <ul>
+                            <li style="display:none"><strong>User:</strong> <code class="review-github-id"></code> <span class="review-github-name">---</span></li>
+                            <li style="display:none"><strong>URL:</strong> <a class="review-github-url" target="_blank">Click here</a></li>
+                            <li style="display:none"><strong>ID:</strong> <code class="review-github-commit_id">---</code></li>
+                            <li style="display:none"><strong>Author:</strong> <span class="review-github-committer_username">---</span></li>
+                            <li style="display:none"><strong>Subject:</strong> <em class="review-github-subject">---</em></li>
+                            <li style="display:none"><strong>Date:</strong> <span class="review-github-datetime">---</span></li>
+                        </ul>
+                    </div>
+                    <div class="review-percentage_down"></div>
+                    <ul class="review-checks list-group sm-gap"></ul>
+                    <div class="review-comment"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+</div>
+
+
+        <div class="fs-4">
+        </div>
+      </div>
+
+
+  </div>
+</div>
+
+    </div>
+    <div data-role="task1868" data-position="12" id="task-num-9">
+      <div class="panel panel-default task-card " id="task-1868">
+  <span id="user_id" data-id="482137"></span>
+
+  <div class="panel-heading panel-heading-actions">
+    <h3 class="panel-title">
+      9. Student to JSON
+    </h3>
+
+    <div>
+        <span class="label label-info">
+          mandatory
+        </span>
+    </div>
+  </div>
+
+  <div class="panel-body">
+    <span id="user_id" data-id="482137"></span>
+
+    <!-- Progress vs Score -->
+      <div class="task_progress_score_bar" data-task-id="1868" data-correction-id="21444745">
+        <div class="task_progress_bar" style="width: 0.0%">
+          <div class="task_score_bar" style="width: NaN%">
+          </div>
+        </div>
+        <div class="task_progress_score_text">
+          Score: <span class="task_score_value">0.0%</span> (<span class="task_progress_value">Checks completed: 0.0%</span>)
+        </div>
+      </div>
+
+    <!-- Task Body -->
+    <p>Write a class <code>Student</code> that defines a student by:</p>
+
+<ul>
+<li>Public instance attributes: 
+
+<ul>
+<li><code>first_name</code></li>
+<li><code>last_name</code></li>
+<li><code>age</code></li>
+</ul></li>
+<li>Instantiation with <code>first_name</code>, <code>last_name</code> and <code>age</code>: <code>def __init__(self, first_name, last_name, age):</code></li>
+<li>Public method <code>def to_json(self):</code> that retrieves a dictionary representation of a <code>Student</code> instance (same as <code>8-class_to_json.py</code>)</li>
+<li>You are not allowed to import any module</li>
+</ul>
+
+<pre><code>guillaume@ubuntu:~/0x0B$ cat 9-main.py 
+#!/usr/bin/python3
+Student = __import__(&#39;9-student&#39;).Student
+
+students = [Student(&quot;John&quot;, &quot;Doe&quot;, 23), Student(&quot;Bob&quot;, &quot;Dylan&quot;, 27)]
+
+for student in students:
+    j_student = student.to_json()
+    print(type(j_student))
+    print(j_student[&#39;first_name&#39;])
+    print(type(j_student[&#39;first_name&#39;]))
+    print(j_student[&#39;age&#39;])
+    print(type(j_student[&#39;age&#39;]))
+
+guillaume@ubuntu:~/0x0B$ ./9-main.py 
+&lt;class &#39;dict&#39;&gt;
+John
+&lt;class &#39;str&#39;&gt;
+23
+&lt;class &#39;int&#39;&gt;
+&lt;class &#39;dict&#39;&gt;
+Bob
+&lt;class &#39;str&#39;&gt;
+27
+&lt;class &#39;int&#39;&gt;
+guillaume@ubuntu:~/0x0B$ 
+</code></pre>
+
+<p><strong>No test cases needed</strong></p>
+
+  </div>
+
+  <div class="list-group">
+    <!-- Task URLs -->
+
+    <!-- Github information -->
+      <div class="list-group-item">
+        <p><strong>Repo:</strong></p>
+        <ul>
+          <li>GitHub repository: <code>alx-higher_level_programming</code></li>
+            <li>Directory: <code>0x0B-python-input_output</code></li>
+            <li>File: <code>9-student.py</code></li>
+        </ul>
+      </div>
+
+    <!-- Self-paced manual review -->
+  </div>
+
+  <!-- Panel footer - Controls -->
+  <div class="panel-footer">
+      <div class="align-items-center d-flex justify-content-between">
+        
+<div>
+    <button class="student_task_done btn btn-default btn-sm no" data-task-id="1868">
+      <span class="no"><i aria-hidden="true" class="fa-regular fa-square "></i></span>
+      <span class="yes"><i aria-hidden="true" class="fa-regular fa-square-check "></i></span>
+      <span class="pending"><i aria-hidden="true" class="fa-solid fa-spinner  fa-spin-pulse"></i></span>
+      Done<span class="no pending">?</span><span class="yes">!</span>
+    </button>
+
+  <button class="student-task-done-by btn btn-default btn-sm" data-task-id="1868" data-batch-id="126" data-toggle="modal" data-target="#task-1868-users-done-modal">
+    Help
+  </button>
+  <div class="modal fade users-done-modal" id="task-1868-users-done-modal" data-task-id="1868" data-batch-id="126">
+    <div class="modal-dialog">
+        <div class="modal-content">
+        <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <h4 class="modal-title">Learners who are done with "9. Student to JSON"</h4>
+        </div>
+        <div class="modal-body">
+            <div class="list-group">
+            </div>
+            <div class="spinner">
+                <div class="bounce1"></div>
+                <div class="bounce2"></div>
+                <div class="bounce3"></div>
+            </div>
+            <div class="error"></div>
+        </div>
+        </div>
+    </div>
+</div>
+
+
+      <button class="btn btn-default btn-sm check-your-task-1868-modal-button" data-task-id="1868" data-toggle="modal" data-target="#task-test-correction-1868-correction-modal" id="task-num-9-check-code-btn" data-gtm-custom-event-name="task_checker_modal" data-gtm-custom-event-options='{&quot;taskId&quot;:1868}'>
+          Check your code
+      </button>
+      <div class="modal fade task_correction_modal student_modal" id="task-test-correction-1868-correction-modal">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title">Correction of "9. Student to JSON"</h4>
+            </div>
+            <div class="modal-body">
+                <div class="actions">
+                    <center>
+                        <div class="alert alert-info hidden"></div>
+
+                        <button name="button" type="submit" class="btn btn-primary correction_request_test_send" data-task-id="1868">Start a new test</button>
+                        <button class="btn btn-default close-modal hidden" data-dismiss="modal" type="button">Close</button>
+
+                        <div class="spinner" style="display: none;">
+                            <div class="bounce1"></div>
+                            <div class="bounce2"></div>
+                            <div class="bounce3"></div>
+                        </div>
+                        <div class="error"></div>
+                        <div class="info"></div>
+                    </center>
+                </div>
+                <div class="result"></div>
+
+                <div class="help">
+    <button data-task-id="1868">
+        <i aria-hidden="true" class="fa-solid fa-circle-info "></i>
+    </button>
+    <div class="help-container" data-task-id="1868">
+        <div class="check-line">
+            <div class="check-inline requirement success">
+                <i aria-hidden="true" class="fa-solid fa-circle-check "></i>
+                Requirement success
+            </div>
+            <div class="check-inline requirement fail">
+                <i aria-hidden="true" class="fa-solid fa-circle-xmark "></i>
+                Requirement fail
+            </div>
+        </div>
+        <div class="check-line">
+            <div class="check-inline code success">
+                <i aria-hidden="true" class="fa-solid fa-circle-check "></i>
+                Code success
+            </div>
+            <div class="check-inline code fail">
+                <i aria-hidden="true" class="fa-solid fa-circle-xmark "></i>
+                Code fail
+            </div>
+        </div>
+        <div class="check-line">
+            <div class="check-inline efficiency success">
+                <i aria-hidden="true" class="fa-solid fa-circle-check "></i>
+                Efficiency success
+            </div>
+            <div class="check-inline efficiency fail">
+                <i aria-hidden="true" class="fa-solid fa-circle-xmark "></i>
+                Efficiency fail
+            </div>
+        </div>
+        <div class="check-line">
+            <div class="check-inline answer success">
+                <i aria-hidden="true" class="fa-solid fa-circle-check "></i>
+                Text answer success
+            </div>
+            <div class="check-inline answer fail">
+                <i aria-hidden="true" class="fa-solid fa-circle-xmark "></i>
+                Text answer fail
+            </div>
+        </div>
+        <div class="check-line">
+            <div class="check-inline requirement fail offline">
+                <i aria-hidden="true" class="fa-solid fa-circle-xmark "></i>
+                Skipped - Previous check failed
+            </div>
+        </div>
+    </div>
+</div>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+
+      <button class="btn btn-primary btn-sm task_ask_new_correction " data-task-id="1868" data-correction-id="21444745">
+        Ask for a new correction
+        <span class="in_progress_info">: in progress...</span>
+        <span class="error_occurred_info">: an error occurred</span>
+      </button>
+
+    <button class="btn btn-default btn-sm" data-toggle="modal" data-target="#container-specs-modal" data-gtm-custom-event-name="task_sandbox_modal" data-gtm-custom-event-options="{&quot;taskId&quot;:1868}"><i aria-hidden="true" class="fa-solid fa-terminal "></i><span>Get a sandbox</span></button>
+
+      <button class="btn btn-default btn-sm" data-task-id="1868" data-toggle="modal" data-target="#task-qa-review-1868-modal" data-gtm-custom-event-name="task_qa_review_modal" data-gtm-custom-event-options='{&quot;taskId&quot;:1868}'>
+        QA Review
+      </button>
+      <div class="modal fade task_get_qa_review" id="task-qa-review-1868-modal" data-correction-id="21444745" data-task-id="1868">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title">9. Student to JSON</h4>
+            </div>
+            <div class="modal-body">
+                <div class="spinner gap">
+                    <div class="bounce1"></div>
+                    <div class="bounce2"></div>
+                    <div class="bounce3"></div>
+                </div>
+                <div class="review-container">
+                    <div class="review-corrector"></div>
+                    <div class="review-github well" style="display:none">
+                        <h5>Commit used:</h5>
+                        <ul>
+                            <li style="display:none"><strong>User:</strong> <code class="review-github-id"></code> <span class="review-github-name">---</span></li>
+                            <li style="display:none"><strong>URL:</strong> <a class="review-github-url" target="_blank">Click here</a></li>
+                            <li style="display:none"><strong>ID:</strong> <code class="review-github-commit_id">---</code></li>
+                            <li style="display:none"><strong>Author:</strong> <span class="review-github-committer_username">---</span></li>
+                            <li style="display:none"><strong>Subject:</strong> <em class="review-github-subject">---</em></li>
+                            <li style="display:none"><strong>Date:</strong> <span class="review-github-datetime">---</span></li>
+                        </ul>
+                    </div>
+                    <div class="review-percentage_down"></div>
+                    <ul class="review-checks list-group sm-gap"></ul>
+                    <div class="review-comment"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+</div>
+
+
+        <div class="fs-4">
+        </div>
+      </div>
+
+
+  </div>
+</div>
+
+    </div>
+    <div data-role="task1869" data-position="13" id="task-num-10">
+      <div class="panel panel-default task-card " id="task-1869">
+  <span id="user_id" data-id="482137"></span>
+
+  <div class="panel-heading panel-heading-actions">
+    <h3 class="panel-title">
+      10. Student to JSON with filter
+    </h3>
+
+    <div>
+        <span class="label label-info">
+          mandatory
+        </span>
+    </div>
+  </div>
+
+  <div class="panel-body">
+    <span id="user_id" data-id="482137"></span>
+
+    <!-- Progress vs Score -->
+      <div class="task_progress_score_bar" data-task-id="1869" data-correction-id="21444745">
+        <div class="task_progress_bar" style="width: 0.0%">
+          <div class="task_score_bar" style="width: NaN%">
+          </div>
+        </div>
+        <div class="task_progress_score_text">
+          Score: <span class="task_score_value">0.0%</span> (<span class="task_progress_value">Checks completed: 0.0%</span>)
+        </div>
+      </div>
+
+    <!-- Task Body -->
+    <p>Write a class <code>Student</code> that defines a student by: (based on <code>9-student.py</code>)</p>
+
+<ul>
+<li>Public instance attributes: 
+
+<ul>
+<li><code>first_name</code></li>
+<li><code>last_name</code></li>
+<li><code>age</code></li>
+</ul></li>
+<li>Instantiation with <code>first_name</code>, <code>last_name</code> and <code>age</code>: <code>def __init__(self, first_name, last_name, age):</code></li>
+<li>Public method <code>def to_json(self, attrs=None):</code> that retrieves a dictionary representation of a <code>Student</code> instance (same as <code>8-class_to_json.py</code>):
+
+<ul>
+<li>If <code>attrs</code> is a list of strings, only attribute names contained in this list must be retrieved. </li>
+<li>Otherwise, all attributes must be retrieved</li>
+</ul></li>
+<li>You are not allowed to import any module</li>
+</ul>
+
+<pre><code>guillaume@ubuntu:~/0x0B$ cat 10-main.py 
+#!/usr/bin/python3
+Student = __import__(&#39;10-student&#39;).Student
+
+student_1 = Student(&quot;John&quot;, &quot;Doe&quot;, 23)
+student_2 = Student(&quot;Bob&quot;, &quot;Dylan&quot;, 27)
+
+j_student_1 = student_1.to_json()
+j_student_2 = student_2.to_json([&#39;first_name&#39;, &#39;age&#39;])
+j_student_3 = student_2.to_json([&#39;middle_name&#39;, &#39;age&#39;])
+
+print(j_student_1)
+print(j_student_2)
+print(j_student_3)
+
+guillaume@ubuntu:~/0x0B$ ./10-main.py 
+{&#39;age&#39;: 23, &#39;last_name&#39;: &#39;Doe&#39;, &#39;first_name&#39;: &#39;John&#39;}
+{&#39;age&#39;: 27, &#39;first_name&#39;: &#39;Bob&#39;}
+{&#39;age&#39;: 27}
+guillaume@ubuntu:~/0x0B$
+</code></pre>
+
+<p><strong>No test cases needed</strong></p>
+
+  </div>
+
+  <div class="list-group">
+    <!-- Task URLs -->
+
+    <!-- Github information -->
+      <div class="list-group-item">
+        <p><strong>Repo:</strong></p>
+        <ul>
+          <li>GitHub repository: <code>alx-higher_level_programming</code></li>
+            <li>Directory: <code>0x0B-python-input_output</code></li>
+            <li>File: <code>10-student.py</code></li>
+        </ul>
+      </div>
+
+    <!-- Self-paced manual review -->
+  </div>
+
+  <!-- Panel footer - Controls -->
+  <div class="panel-footer">
+      <div class="align-items-center d-flex justify-content-between">
+        
+<div>
+    <button class="student_task_done btn btn-default btn-sm no" data-task-id="1869">
+      <span class="no"><i aria-hidden="true" class="fa-regular fa-square "></i></span>
+      <span class="yes"><i aria-hidden="true" class="fa-regular fa-square-check "></i></span>
+      <span class="pending"><i aria-hidden="true" class="fa-solid fa-spinner  fa-spin-pulse"></i></span>
+      Done<span class="no pending">?</span><span class="yes">!</span>
+    </button>
+
+  <button class="student-task-done-by btn btn-default btn-sm" data-task-id="1869" data-batch-id="126" data-toggle="modal" data-target="#task-1869-users-done-modal">
+    Help
+  </button>
+  <div class="modal fade users-done-modal" id="task-1869-users-done-modal" data-task-id="1869" data-batch-id="126">
+    <div class="modal-dialog">
+        <div class="modal-content">
+        <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <h4 class="modal-title">Learners who are done with "10. Student to JSON with filter"</h4>
+        </div>
+        <div class="modal-body">
+            <div class="list-group">
+            </div>
+            <div class="spinner">
+                <div class="bounce1"></div>
+                <div class="bounce2"></div>
+                <div class="bounce3"></div>
+            </div>
+            <div class="error"></div>
+        </div>
+        </div>
+    </div>
+</div>
+
+
+      <button class="btn btn-default btn-sm check-your-task-1869-modal-button" data-task-id="1869" data-toggle="modal" data-target="#task-test-correction-1869-correction-modal" id="task-num-10-check-code-btn" data-gtm-custom-event-name="task_checker_modal" data-gtm-custom-event-options='{&quot;taskId&quot;:1869}'>
+          Check your code
+      </button>
+      <div class="modal fade task_correction_modal student_modal" id="task-test-correction-1869-correction-modal">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title">Correction of "10. Student to JSON with filter"</h4>
+            </div>
+            <div class="modal-body">
+                <div class="actions">
+                    <center>
+                        <div class="alert alert-info hidden"></div>
+
+                        <button name="button" type="submit" class="btn btn-primary correction_request_test_send" data-task-id="1869">Start a new test</button>
+                        <button class="btn btn-default close-modal hidden" data-dismiss="modal" type="button">Close</button>
+
+                        <div class="spinner" style="display: none;">
+                            <div class="bounce1"></div>
+                            <div class="bounce2"></div>
+                            <div class="bounce3"></div>
+                        </div>
+                        <div class="error"></div>
+                        <div class="info"></div>
+                    </center>
+                </div>
+                <div class="result"></div>
+
+                <div class="help">
+    <button data-task-id="1869">
+        <i aria-hidden="true" class="fa-solid fa-circle-info "></i>
+    </button>
+    <div class="help-container" data-task-id="1869">
+        <div class="check-line">
+            <div class="check-inline requirement success">
+                <i aria-hidden="true" class="fa-solid fa-circle-check "></i>
+                Requirement success
+            </div>
+            <div class="check-inline requirement fail">
+                <i aria-hidden="true" class="fa-solid fa-circle-xmark "></i>
+                Requirement fail
+            </div>
+        </div>
+        <div class="check-line">
+            <div class="check-inline code success">
+                <i aria-hidden="true" class="fa-solid fa-circle-check "></i>
+                Code success
+            </div>
+            <div class="check-inline code fail">
+                <i aria-hidden="true" class="fa-solid fa-circle-xmark "></i>
+                Code fail
+            </div>
+        </div>
+        <div class="check-line">
+            <div class="check-inline efficiency success">
+                <i aria-hidden="true" class="fa-solid fa-circle-check "></i>
+                Efficiency success
+            </div>
+            <div class="check-inline efficiency fail">
+                <i aria-hidden="true" class="fa-solid fa-circle-xmark "></i>
+                Efficiency fail
+            </div>
+        </div>
+        <div class="check-line">
+            <div class="check-inline answer success">
+                <i aria-hidden="true" class="fa-solid fa-circle-check "></i>
+                Text answer success
+            </div>
+            <div class="check-inline answer fail">
+                <i aria-hidden="true" class="fa-solid fa-circle-xmark "></i>
+                Text answer fail
+            </div>
+        </div>
+        <div class="check-line">
+            <div class="check-inline requirement fail offline">
+                <i aria-hidden="true" class="fa-solid fa-circle-xmark "></i>
+                Skipped - Previous check failed
+            </div>
+        </div>
+    </div>
+</div>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+
+      <button class="btn btn-primary btn-sm task_ask_new_correction " data-task-id="1869" data-correction-id="21444745">
+        Ask for a new correction
+        <span class="in_progress_info">: in progress...</span>
+        <span class="error_occurred_info">: an error occurred</span>
+      </button>
+
+    <button class="btn btn-default btn-sm" data-toggle="modal" data-target="#container-specs-modal" data-gtm-custom-event-name="task_sandbox_modal" data-gtm-custom-event-options="{&quot;taskId&quot;:1869}"><i aria-hidden="true" class="fa-solid fa-terminal "></i><span>Get a sandbox</span></button>
+
+      <button class="btn btn-default btn-sm" data-task-id="1869" data-toggle="modal" data-target="#task-qa-review-1869-modal" data-gtm-custom-event-name="task_qa_review_modal" data-gtm-custom-event-options='{&quot;taskId&quot;:1869}'>
+        QA Review
+      </button>
+      <div class="modal fade task_get_qa_review" id="task-qa-review-1869-modal" data-correction-id="21444745" data-task-id="1869">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title">10. Student to JSON with filter</h4>
+            </div>
+            <div class="modal-body">
+                <div class="spinner gap">
+                    <div class="bounce1"></div>
+                    <div class="bounce2"></div>
+                    <div class="bounce3"></div>
+                </div>
+                <div class="review-container">
+                    <div class="review-corrector"></div>
+                    <div class="review-github well" style="display:none">
+                        <h5>Commit used:</h5>
+                        <ul>
+                            <li style="display:none"><strong>User:</strong> <code class="review-github-id"></code> <span class="review-github-name">---</span></li>
+                            <li style="display:none"><strong>URL:</strong> <a class="review-github-url" target="_blank">Click here</a></li>
+                            <li style="display:none"><strong>ID:</strong> <code class="review-github-commit_id">---</code></li>
+                            <li style="display:none"><strong>Author:</strong> <span class="review-github-committer_username">---</span></li>
+                            <li style="display:none"><strong>Subject:</strong> <em class="review-github-subject">---</em></li>
+                            <li style="display:none"><strong>Date:</strong> <span class="review-github-datetime">---</span></li>
+                        </ul>
+                    </div>
+                    <div class="review-percentage_down"></div>
+                    <ul class="review-checks list-group sm-gap"></ul>
+                    <div class="review-comment"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+</div>
+
+
+        <div class="fs-4">
+        </div>
+      </div>
+
+
+  </div>
+</div>
+
+    </div>
+    <div data-role="task1870" data-position="14" id="task-num-11">
+      <div class="panel panel-default task-card " id="task-1870">
+  <span id="user_id" data-id="482137"></span>
+
+  <div class="panel-heading panel-heading-actions">
+    <h3 class="panel-title">
+      11. Student to disk and reload
+    </h3>
+
+    <div>
+        <span class="label label-info">
+          mandatory
+        </span>
+    </div>
+  </div>
+
+  <div class="panel-body">
+    <span id="user_id" data-id="482137"></span>
+
+    <!-- Progress vs Score -->
+      <div class="task_progress_score_bar" data-task-id="1870" data-correction-id="21444745">
+        <div class="task_progress_bar" style="width: 0.0%">
+          <div class="task_score_bar" style="width: NaN%">
+          </div>
+        </div>
+        <div class="task_progress_score_text">
+          Score: <span class="task_score_value">0.0%</span> (<span class="task_progress_value">Checks completed: 0.0%</span>)
+        </div>
+      </div>
+
+    <!-- Task Body -->
+    <p>Write a class <code>Student</code> that defines a student by: (based on <code>10-student.py</code>)</p>
+
+<ul>
+<li>Public instance attributes: 
+
+<ul>
+<li><code>first_name</code></li>
+<li><code>last_name</code></li>
+<li><code>age</code></li>
+</ul></li>
+<li>Instantiation with <code>first_name</code>, <code>last_name</code> and <code>age</code>: <code>def __init__(self, first_name, last_name, age):</code></li>
+<li>Public method <code>def to_json(self, attrs=None):</code> that retrieves a dictionary representation of a <code>Student</code> instance (same as <code>8-class_to_json.py</code>):
+
+<ul>
+<li>If <code>attrs</code> is a list of strings, only attributes name contain in this list must be retrieved. </li>
+<li>Otherwise, all attributes must be retrieved</li>
+</ul></li>
+<li>Public method <code>def reload_from_json(self, json):</code> that replaces all attributes of the <code>Student</code> instance:
+
+<ul>
+<li>You can assume <code>json</code> will always be a dictionary</li>
+<li>A dictionary key will be the public attribute name</li>
+<li>A dictionary value will be the value of the public attribute</li>
+</ul></li>
+<li>You are not allowed to import any module</li>
+</ul>
+
+<p>Now, you have a simple implementation of a serialization and deserialization mechanism (concept of representation of an object to another format, without losing any information and allow us to rebuild an object based on this representation)</p>
+
+<pre><code>guillaume@ubuntu:~/0x0B$ cat 11-main.py 
+#!/usr/bin/python3
+import os
+import sys
+
+Student = __import__(&#39;11-student&#39;).Student
+read_file = __import__(&#39;0-read_file&#39;).read_file
+save_to_json_file = __import__(&#39;5-save_to_json_file&#39;).save_to_json_file
+load_from_json_file = __import__(&#39;6-load_from_json_file&#39;).load_from_json_file
+
+path = sys.argv[1]
+
+if os.path.exists(path):
+    os.remove(path)
+
+student_1 = Student(&quot;John&quot;, &quot;Doe&quot;, 23)
+j_student_1 = student_1.to_json()
+print(&quot;Initial student:&quot;)
+print(student_1)
+print(type(student_1))
+print(type(j_student_1))
+print(&quot;{} {} {}&quot;.format(student_1.first_name, student_1.last_name, student_1.age))
+
+
+save_to_json_file(j_student_1, path)
+read_file(path)
+print(&quot;\nSaved to disk&quot;)
+
+
+print(&quot;Fake student:&quot;)
+new_student_1 = Student(&quot;Fake&quot;, &quot;Fake&quot;, 89)
+print(new_student_1)
+print(type(new_student_1))
+print(&quot;{} {} {}&quot;.format(new_student_1.first_name, new_student_1.last_name, new_student_1.age))
+
+
+print(&quot;Load dictionary from file:&quot;)
+new_j_student_1 = load_from_json_file(path)
+
+new_student_1.reload_from_json(j_student_1)
+print(new_student_1)
+print(type(new_student_1))
+print(&quot;{} {} {}&quot;.format(new_student_1.first_name, new_student_1.last_name, new_student_1.age))
+
+guillaume@ubuntu:~/0x0B$ ./11-main.py student.json
+Initial student:
+&lt;11-student.Student object at 0x7f832826eda0&gt;
+&lt;class &#39;11-student.Student&#39;&gt;
+&lt;class &#39;dict&#39;&gt;
+John Doe 23
+{&quot;last_name&quot;: &quot;Doe&quot;, &quot;first_name&quot;: &quot;John&quot;, &quot;age&quot;: 23}
+Saved to disk
+Fake student:
+&lt;11-student.Student object at 0x7f832826edd8&gt;
+&lt;class &#39;11-student.Student&#39;&gt;
+Fake Fake 89
+Load dictionary from file:
+&lt;11-student.Student object at 0x7f832826edd8&gt;
+&lt;class &#39;11-student.Student&#39;&gt;
+John Doe 23
+guillaume@ubuntu:~/0x0B$ cat student.json ; echo &quot;&quot;
+{&quot;last_name&quot;: &quot;Doe&quot;, &quot;first_name&quot;: &quot;John&quot;, &quot;age&quot;: 23}
+guillaume@ubuntu:~/0x0B$ 
+</code></pre>
+
+<p><strong>No test cases needed</strong></p>
+
+  </div>
+
+  <div class="list-group">
+    <!-- Task URLs -->
+
+    <!-- Github information -->
+      <div class="list-group-item">
+        <p><strong>Repo:</strong></p>
+        <ul>
+          <li>GitHub repository: <code>alx-higher_level_programming</code></li>
+            <li>Directory: <code>0x0B-python-input_output</code></li>
+            <li>File: <code>11-student.py</code></li>
+        </ul>
+      </div>
+
+    <!-- Self-paced manual review -->
+  </div>
+
+  <!-- Panel footer - Controls -->
+  <div class="panel-footer">
+      <div class="align-items-center d-flex justify-content-between">
+        
+<div>
+    <button class="student_task_done btn btn-default btn-sm no" data-task-id="1870">
+      <span class="no"><i aria-hidden="true" class="fa-regular fa-square "></i></span>
+      <span class="yes"><i aria-hidden="true" class="fa-regular fa-square-check "></i></span>
+      <span class="pending"><i aria-hidden="true" class="fa-solid fa-spinner  fa-spin-pulse"></i></span>
+      Done<span class="no pending">?</span><span class="yes">!</span>
+    </button>
+
+  <button class="student-task-done-by btn btn-default btn-sm" data-task-id="1870" data-batch-id="126" data-toggle="modal" data-target="#task-1870-users-done-modal">
+    Help
+  </button>
+  <div class="modal fade users-done-modal" id="task-1870-users-done-modal" data-task-id="1870" data-batch-id="126">
+    <div class="modal-dialog">
+        <div class="modal-content">
+        <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <h4 class="modal-title">Learners who are done with "11. Student to disk and reload"</h4>
+        </div>
+        <div class="modal-body">
+            <div class="list-group">
+            </div>
+            <div class="spinner">
+                <div class="bounce1"></div>
+                <div class="bounce2"></div>
+                <div class="bounce3"></div>
+            </div>
+            <div class="error"></div>
+        </div>
+        </div>
+    </div>
+</div>
+
+
+      <button class="btn btn-default btn-sm check-your-task-1870-modal-button" data-task-id="1870" data-toggle="modal" data-target="#task-test-correction-1870-correction-modal" id="task-num-11-check-code-btn" data-gtm-custom-event-name="task_checker_modal" data-gtm-custom-event-options='{&quot;taskId&quot;:1870}'>
+          Check your code
+      </button>
+      <div class="modal fade task_correction_modal student_modal" id="task-test-correction-1870-correction-modal">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title">Correction of "11. Student to disk and reload"</h4>
+            </div>
+            <div class="modal-body">
+                <div class="actions">
+                    <center>
+                        <div class="alert alert-info hidden"></div>
+
+                        <button name="button" type="submit" class="btn btn-primary correction_request_test_send" data-task-id="1870">Start a new test</button>
+                        <button class="btn btn-default close-modal hidden" data-dismiss="modal" type="button">Close</button>
+
+                        <div class="spinner" style="display: none;">
+                            <div class="bounce1"></div>
+                            <div class="bounce2"></div>
+                            <div class="bounce3"></div>
+                        </div>
+                        <div class="error"></div>
+                        <div class="info"></div>
+                    </center>
+                </div>
+                <div class="result"></div>
+
+                <div class="help">
+    <button data-task-id="1870">
+        <i aria-hidden="true" class="fa-solid fa-circle-info "></i>
+    </button>
+    <div class="help-container" data-task-id="1870">
+        <div class="check-line">
+            <div class="check-inline requirement success">
+                <i aria-hidden="true" class="fa-solid fa-circle-check "></i>
+                Requirement success
+            </div>
+            <div class="check-inline requirement fail">
+                <i aria-hidden="true" class="fa-solid fa-circle-xmark "></i>
+                Requirement fail
+            </div>
+        </div>
+        <div class="check-line">
+            <div class="check-inline code success">
+                <i aria-hidden="true" class="fa-solid fa-circle-check "></i>
+                Code success
+            </div>
+            <div class="check-inline code fail">
+                <i aria-hidden="true" class="fa-solid fa-circle-xmark "></i>
+                Code fail
+            </div>
+        </div>
+        <div class="check-line">
+            <div class="check-inline efficiency success">
+                <i aria-hidden="true" class="fa-solid fa-circle-check "></i>
+                Efficiency success
+            </div>
+            <div class="check-inline efficiency fail">
+                <i aria-hidden="true" class="fa-solid fa-circle-xmark "></i>
+                Efficiency fail
+            </div>
+        </div>
+        <div class="check-line">
+            <div class="check-inline answer success">
+                <i aria-hidden="true" class="fa-solid fa-circle-check "></i>
+                Text answer success
+            </div>
+            <div class="check-inline answer fail">
+                <i aria-hidden="true" class="fa-solid fa-circle-xmark "></i>
+                Text answer fail
+            </div>
+        </div>
+        <div class="check-line">
+            <div class="check-inline requirement fail offline">
+                <i aria-hidden="true" class="fa-solid fa-circle-xmark "></i>
+                Skipped - Previous check failed
+            </div>
+        </div>
+    </div>
+</div>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+
+      <button class="btn btn-primary btn-sm task_ask_new_correction " data-task-id="1870" data-correction-id="21444745">
+        Ask for a new correction
+        <span class="in_progress_info">: in progress...</span>
+        <span class="error_occurred_info">: an error occurred</span>
+      </button>
+
+    <button class="btn btn-default btn-sm" data-toggle="modal" data-target="#container-specs-modal" data-gtm-custom-event-name="task_sandbox_modal" data-gtm-custom-event-options="{&quot;taskId&quot;:1870}"><i aria-hidden="true" class="fa-solid fa-terminal "></i><span>Get a sandbox</span></button>
+
+      <button class="btn btn-default btn-sm" data-task-id="1870" data-toggle="modal" data-target="#task-qa-review-1870-modal" data-gtm-custom-event-name="task_qa_review_modal" data-gtm-custom-event-options='{&quot;taskId&quot;:1870}'>
+        QA Review
+      </button>
+      <div class="modal fade task_get_qa_review" id="task-qa-review-1870-modal" data-correction-id="21444745" data-task-id="1870">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title">11. Student to disk and reload</h4>
+            </div>
+            <div class="modal-body">
+                <div class="spinner gap">
+                    <div class="bounce1"></div>
+                    <div class="bounce2"></div>
+                    <div class="bounce3"></div>
+                </div>
+                <div class="review-container">
+                    <div class="review-corrector"></div>
+                    <div class="review-github well" style="display:none">
+                        <h5>Commit used:</h5>
+                        <ul>
+                            <li style="display:none"><strong>User:</strong> <code class="review-github-id"></code> <span class="review-github-name">---</span></li>
+                            <li style="display:none"><strong>URL:</strong> <a class="review-github-url" target="_blank">Click here</a></li>
+                            <li style="display:none"><strong>ID:</strong> <code class="review-github-commit_id">---</code></li>
+                            <li style="display:none"><strong>Author:</strong> <span class="review-github-committer_username">---</span></li>
+                            <li style="display:none"><strong>Subject:</strong> <em class="review-github-subject">---</em></li>
+                            <li style="display:none"><strong>Date:</strong> <span class="review-github-datetime">---</span></li>
+                        </ul>
+                    </div>
+                    <div class="review-percentage_down"></div>
+                    <ul class="review-checks list-group sm-gap"></ul>
+                    <div class="review-comment"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+</div>
+
+
+        <div class="fs-4">
+        </div>
+      </div>
+
+
+  </div>
+</div>
+
+    </div>
+    <div data-role="task2856" data-position="15" id="task-num-12">
+      <div class="panel panel-default task-card " id="task-2856">
+  <span id="user_id" data-id="482137"></span>
+
+  <div class="panel-heading panel-heading-actions">
+    <h3 class="panel-title">
+      12. Pascal&#39;s Triangle
+    </h3>
+
+    <div>
+        <span class="label label-info">
+          mandatory
+        </span>
+    </div>
+  </div>
+
+  <div class="panel-body">
+    <span id="user_id" data-id="482137"></span>
+
+    <!-- Progress vs Score -->
+      <div class="task_progress_score_bar" data-task-id="2856" data-correction-id="21444745">
+        <div class="task_progress_bar" style="width: 0.0%">
+          <div class="task_score_bar" style="width: NaN%">
+          </div>
+        </div>
+        <div class="task_progress_score_text">
+          Score: <span class="task_score_value">0.0%</span> (<span class="task_progress_value">Checks completed: 0.0%</span>)
+        </div>
+      </div>
+
+    <!-- Task Body -->
+    <p><strong>Technical interview preparation</strong>: </p>
+
+<ul>
+<li>You are not allowed to google anything</li>
+<li>Whiteboard first</li>
+</ul>
+
+<p>Create a function <code>def pascal_triangle(n):</code> that returns a list of lists of integers representing the Pascal&rsquo;s triangle of <code>n</code>:</p>
+
+<ul>
+<li>Returns an empty list if <code>n &lt;= 0</code></li>
+<li>You can assume <code>n</code> will be always an integer</li>
+<li>You are not allowed to import any module</li>
+</ul>
+
+<pre><code>guillaume@ubuntu:~/0x0B$ cat 12-main.py
+#!/usr/bin/python3
+&quot;&quot;&quot;
+12-main
+&quot;&quot;&quot;
+pascal_triangle = __import__(&#39;12-pascal_triangle&#39;).pascal_triangle
+
+def print_triangle(triangle):
+    &quot;&quot;&quot;
+    Print the triangle
+    &quot;&quot;&quot;
+    for row in triangle:
+        print(&quot;[{}]&quot;.format(&quot;,&quot;.join([str(x) for x in row])))
+
+
+if __name__ == &quot;__main__&quot;:
+    print_triangle(pascal_triangle(5))
+
+guillaume@ubuntu:~/0x0B$ 
+guillaume@ubuntu:~/0x0B$ ./12-main.py
+[1]
+[1,1]
+[1,2,1]
+[1,3,3,1]
+[1,4,6,4,1]
+guillaume@ubuntu:~/0x0B$ 
+</code></pre>
+
+  </div>
+
+  <div class="list-group">
+    <!-- Task URLs -->
+
+    <!-- Github information -->
+      <div class="list-group-item">
+        <p><strong>Repo:</strong></p>
+        <ul>
+          <li>GitHub repository: <code>alx-higher_level_programming</code></li>
+            <li>Directory: <code>0x0B-python-input_output</code></li>
+            <li>File: <code>12-pascal_triangle.py</code></li>
+        </ul>
+      </div>
+
+    <!-- Self-paced manual review -->
+  </div>
+
+  <!-- Panel footer - Controls -->
+  <div class="panel-footer">
+      <div class="align-items-center d-flex justify-content-between">
+        
+<div>
+    <button class="student_task_done btn btn-default btn-sm no" data-task-id="2856">
+      <span class="no"><i aria-hidden="true" class="fa-regular fa-square "></i></span>
+      <span class="yes"><i aria-hidden="true" class="fa-regular fa-square-check "></i></span>
+      <span class="pending"><i aria-hidden="true" class="fa-solid fa-spinner  fa-spin-pulse"></i></span>
+      Done<span class="no pending">?</span><span class="yes">!</span>
+    </button>
+
+  <button class="student-task-done-by btn btn-default btn-sm" data-task-id="2856" data-batch-id="126" data-toggle="modal" data-target="#task-2856-users-done-modal">
+    Help
+  </button>
+  <div class="modal fade users-done-modal" id="task-2856-users-done-modal" data-task-id="2856" data-batch-id="126">
+    <div class="modal-dialog">
+        <div class="modal-content">
+        <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <h4 class="modal-title">Learners who are done with "12. Pascal&#39;s Triangle"</h4>
+        </div>
+        <div class="modal-body">
+            <div class="list-group">
+            </div>
+            <div class="spinner">
+                <div class="bounce1"></div>
+                <div class="bounce2"></div>
+                <div class="bounce3"></div>
+            </div>
+            <div class="error"></div>
+        </div>
+        </div>
+    </div>
+</div>
+
+
+      <button class="btn btn-default btn-sm check-your-task-2856-modal-button" data-task-id="2856" data-toggle="modal" data-target="#task-test-correction-2856-correction-modal" id="task-num-12-check-code-btn" data-gtm-custom-event-name="task_checker_modal" data-gtm-custom-event-options='{&quot;taskId&quot;:2856}'>
+          Check your code
+      </button>
+      <div class="modal fade task_correction_modal student_modal" id="task-test-correction-2856-correction-modal">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title">Correction of "12. Pascal&#39;s Triangle"</h4>
+            </div>
+            <div class="modal-body">
+                <div class="actions">
+                    <center>
+                        <div class="alert alert-info hidden"></div>
+
+                        <button name="button" type="submit" class="btn btn-primary correction_request_test_send" data-task-id="2856">Start a new test</button>
+                        <button class="btn btn-default close-modal hidden" data-dismiss="modal" type="button">Close</button>
+
+                        <div class="spinner" style="display: none;">
+                            <div class="bounce1"></div>
+                            <div class="bounce2"></div>
+                            <div class="bounce3"></div>
+                        </div>
+                        <div class="error"></div>
+                        <div class="info"></div>
+                    </center>
+                </div>
+                <div class="result"></div>
+
+                <div class="help">
+    <button data-task-id="2856">
+        <i aria-hidden="true" class="fa-solid fa-circle-info "></i>
+    </button>
+    <div class="help-container" data-task-id="2856">
+        <div class="check-line">
+            <div class="check-inline requirement success">
+                <i aria-hidden="true" class="fa-solid fa-circle-check "></i>
+                Requirement success
+            </div>
+            <div class="check-inline requirement fail">
+                <i aria-hidden="true" class="fa-solid fa-circle-xmark "></i>
+                Requirement fail
+            </div>
+        </div>
+        <div class="check-line">
+            <div class="check-inline code success">
+                <i aria-hidden="true" class="fa-solid fa-circle-check "></i>
+                Code success
+            </div>
+            <div class="check-inline code fail">
+                <i aria-hidden="true" class="fa-solid fa-circle-xmark "></i>
+                Code fail
+            </div>
+        </div>
+        <div class="check-line">
+            <div class="check-inline efficiency success">
+                <i aria-hidden="true" class="fa-solid fa-circle-check "></i>
+                Efficiency success
+            </div>
+            <div class="check-inline efficiency fail">
+                <i aria-hidden="true" class="fa-solid fa-circle-xmark "></i>
+                Efficiency fail
+            </div>
+        </div>
+        <div class="check-line">
+            <div class="check-inline answer success">
+                <i aria-hidden="true" class="fa-solid fa-circle-check "></i>
+                Text answer success
+            </div>
+            <div class="check-inline answer fail">
+                <i aria-hidden="true" class="fa-solid fa-circle-xmark "></i>
+                Text answer fail
+            </div>
+        </div>
+        <div class="check-line">
+            <div class="check-inline requirement fail offline">
+                <i aria-hidden="true" class="fa-solid fa-circle-xmark "></i>
+                Skipped - Previous check failed
+            </div>
+        </div>
+    </div>
+</div>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+
+      <button class="btn btn-primary btn-sm task_ask_new_correction " data-task-id="2856" data-correction-id="21444745">
+        Ask for a new correction
+        <span class="in_progress_info">: in progress...</span>
+        <span class="error_occurred_info">: an error occurred</span>
+      </button>
+
+    <button class="btn btn-default btn-sm" data-toggle="modal" data-target="#container-specs-modal" data-gtm-custom-event-name="task_sandbox_modal" data-gtm-custom-event-options="{&quot;taskId&quot;:2856}"><i aria-hidden="true" class="fa-solid fa-terminal "></i><span>Get a sandbox</span></button>
+
+      <button class="btn btn-default btn-sm" data-task-id="2856" data-toggle="modal" data-target="#task-qa-review-2856-modal" data-gtm-custom-event-name="task_qa_review_modal" data-gtm-custom-event-options='{&quot;taskId&quot;:2856}'>
+        QA Review
+      </button>
+      <div class="modal fade task_get_qa_review" id="task-qa-review-2856-modal" data-correction-id="21444745" data-task-id="2856">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title">12. Pascal&#39;s Triangle</h4>
+            </div>
+            <div class="modal-body">
+                <div class="spinner gap">
+                    <div class="bounce1"></div>
+                    <div class="bounce2"></div>
+                    <div class="bounce3"></div>
+                </div>
+                <div class="review-container">
+                    <div class="review-corrector"></div>
+                    <div class="review-github well" style="display:none">
+                        <h5>Commit used:</h5>
+                        <ul>
+                            <li style="display:none"><strong>User:</strong> <code class="review-github-id"></code> <span class="review-github-name">---</span></li>
+                            <li style="display:none"><strong>URL:</strong> <a class="review-github-url" target="_blank">Click here</a></li>
+                            <li style="display:none"><strong>ID:</strong> <code class="review-github-commit_id">---</code></li>
+                            <li style="display:none"><strong>Author:</strong> <span class="review-github-committer_username">---</span></li>
+                            <li style="display:none"><strong>Subject:</strong> <em class="review-github-subject">---</em></li>
+                            <li style="display:none"><strong>Date:</strong> <span class="review-github-datetime">---</span></li>
+                        </ul>
+                    </div>
+                    <div class="review-percentage_down"></div>
+                    <ul class="review-checks list-group sm-gap"></ul>
+                    <div class="review-comment"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+</div>
+
+
+        <div class="fs-4">
+        </div>
+      </div>
+
+
+  </div>
+</div>
+
+    </div>
+
+    <p class="lg-gap">
+      <form class="button_to" method="post" action="/projects/260/unlock_optionals"><input id="unlock_optional_btn" class="btn btn-primary btn-block" data-confirm="Are you sure? Make sure you focused on the mandatory tasks first" data-disable-with="Unlocking 2 advanced tasks..." data-gtm-custom-event-name="project_unlock_advanced_tasks" type="submit" value="Done with the mandatory tasks? Unlock 2 advanced tasks now!" /><input type="hidden" name="authenticity_token" value="k7hG7F2_SYR0InpSAvJr-U2faX92SNRiHjhMFq7KqJhwoF88sJeP5fQYkJPNR3kV086-W0OINAWoDcLXVSLNOw" autocomplete="off" /></form>
+    </p>
+
+
+
+
+          <div class="modal fade" id="container-specs-modal"><div class="modal-dialog modal-lg"><div class="modal-content"><div class="modal-header"><button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button><h4 class="modal-title">Recommended Sandboxes</h4></div><div class="modal-body"><div data-react-class="user_containers/ContainerSpecs" data-react-props="{&quot;containerModelName&quot;:&quot;Sandbox&quot;,&quot;containerSpecs&quot;:[{&quot;available&quot;:true,&quot;description&quot;:&quot;\u003cp\u003eUbuntu 14.04 with all tools needed and Python 3.4\u003c/p\u003e\n&quot;,&quot;id&quot;:5,&quot;name&quot;:&quot;Ubuntu 14.04 - Python 3.4&quot;,&quot;online&quot;:true},{&quot;available&quot;:true,&quot;description&quot;:&quot;\u003cp\u003eBasic Ubuntu 20.04, with vim, emacs, curl, wget and all needed for Foundations\u003c/p\u003e\n&quot;,&quot;id&quot;:39,&quot;name&quot;:&quot;Ubuntu 20.04&quot;,&quot;online&quot;:true,&quot;container&quot;:{&quot;container_id&quot;:null,&quot;id&quot;:587811,&quot;restart_uri&quot;:&quot;/user_containers/587811/restart.json&quot;,&quot;status&quot;:&quot;asleep&quot;,&quot;uri&quot;:&quot;/user_containers/587811.json&quot;,&quot;wake_uri&quot;:&quot;/user_containers/587811/wake.json&quot;,&quot;webterm_uri&quot;:&quot;/user_containers/587811/webterm&quot;,&quot;host&quot;:null,&quot;password&quot;:&quot;cbdeaf79364faf305a94&quot;,&quot;ports&quot;:{&quot;22&quot;:59939,&quot;3000&quot;:59936,&quot;3306&quot;:59935,&quot;4000&quot;:59934,&quot;443&quot;:59937,&quot;5000&quot;:59933,&quot;5001&quot;:59932,&quot;80&quot;:59938,&quot;8000&quot;:59931,&quot;8080&quot;:59930}}}],&quot;containersLimit&quot;:2,&quot;csrfToken&quot;:&quot;e8w-WWllSufOV6p2aCjjnRsw0PWSURpK8wc8CLHa1g_WY5H9Y0HWkdUnYoZAESXY15YfxYhNo2q1uITaGJ_nbA&quot;,&quot;startStatusURI&quot;:&quot;/user_containers/start_status.json&quot;,&quot;startURI&quot;:&quot;/user_containers/start.json&quot;}" data-react-cache-id="user_containers/ContainerSpecs-0"></div></div></div></div></div>
+
+  </div>
+</div>
+
+
+      </article>
+
+      <div class="copyright">Copyright © 2024 ALX, All rights reserved.</div>
+
+    </main>
+
+        <button class="btn btn-primary atop-zendesk" id="search-button" data-search-active="false" data-toggle="modal" data-target="#search-modal">
+  <i aria-hidden="true" class="fa-solid fa-magnifying-glass "></i>
+  <i aria-hidden="true" class="fa-solid fa-window-minimize "></i>
+</button>
+
+        <div class="modal fade" id="search-modal" tabindex="-1" role="dialog" aria-labelledby="search-modal-label">
+    <div class="modal-dialog modal-md">
+        <div class="modal-content">
+            <div class="modal-header">
+                <div id="search-bar-container">
+    <input id="search-bar"
+            autocomplete="off"
+            type="text"
+            name="hbtn-search-bar"
+            placeholder="✨Start search by typing in this field✨">
+</div>
+
+            </div>
+            <div class="modal-body">
+                <div id="modal-spinner" class="spinner gap">
+                    <div class="bounce1"></div>
+                    <div class="bounce2"></div>
+                    <div class="bounce3"></div>
+                </div>
+                <div id="search-results-container">
+</div>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+        <div class="modal fade" id="markdownGuideModal" tabindex="-1" role="dialog" aria-labelledby="markdownGuideModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-md">
+    <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+          <h4 class="modal-title">Markdown Guide</h4>
+        </div>
+        <div class="modal-body">
+            <h4>Emphasis</h4>
+<pre>**<strong>bold</strong>**
+*<em>italics</em>*
+~~<strike>strikethrough</strike>~~</pre>
+<h4>Headers</h4>
+<pre># Big header
+## Medium header
+### Small header
+#### Tiny header</pre>
+<h4>Lists</h4>
+<pre>* Generic list item
+* Generic list item
+* Generic list item
+
+1. Numbered list item
+2. Numbered list item
+3. Numbered list item</pre>
+<h4>Links</h4>
+<pre>[Text to display](http://www.example.com)</pre>
+<h4>Quotes</h4>
+<pre>> This is a quote.
+> It can span multiple lines!</pre>
+<h4>Images</h4>
+<p>CSS style available: <code>width, height, opacity</code></p>
+<pre>![](http://www.example.com/image.jpg)
+![](http://www.example.com/image.jpg | width: 200px)
+![](http://www.example.com/image.jpg | height: 124px | width: 80px | opacity: 0.6)
+</pre>
+<h4>Tables</h4>
+<pre>| Column 1 | Column 2 | Column 3 |
+| -------- | -------- | -------- |
+| John     | Doe      | Male     |
+| Mary     | Smith    | Female   |
+
+<em>Or without aligning the columns...</em>
+
+| Column 1 | Column 2 | Column 3 |
+| -------- | -------- | -------- |
+| John | Doe | Male |
+| Mary | Smith | Female |
+</pre>
+<h4>Displaying code</h4>
+<pre>`var example = "hello!";`
+
+<em>Or spanning multiple lines...</em>
+
+```
+var example = "hello!";
+alert(example);
+```</pre>
+        </div>
+    </div>
+  </div>
+</div>
+
+
+        <script id="ze-snippet" src="https://static.zdassets.com/ekr/snippet.js?key=0e932b79-b1e7-49d4-88a9-75d1fc357a07"></script>
+        <script type="text/javascript">
+          zE('webWidget', 'prefill', {
+              email: {
+                  value: 'ifedayoprince@gmail.com',
+                  readOnly: true
+              }
+          });
+        </script>
+  </body>
+</html>
