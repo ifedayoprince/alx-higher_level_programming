@@ -1,8 +1,8 @@
 # 0x06. Python - Classes and Objects
 ==============================
 I learnt:
-- Something
-- Something
+- How to properly document methods in Python.
+- How to create getter and setter properties in Python.
 
 
 ## Tasks: 
